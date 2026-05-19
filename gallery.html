@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore the Gallery of ST VISHNA RRN SCHOOL — campus life, events, academics, and more." />
+  <title>Gallery | ST VISHNA RRN SCHOOL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { padding-top: 68px; }
+
+    .page-hero {
+      background: linear-gradient(135deg, var(--deep-blue) 0%, rgba(249,115,22,.8) 100%);
+      padding: 130px 0 70px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 90% at 20% 50%, rgba(249,115,22,.15) 0%, transparent 70%);
+    }
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: var(--white);
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .page-hero p { color: rgba(255,255,255,.75); font-size: 1.05rem; position: relative; }
+
+    .breadcrumb {
+      display: flex; justify-content: center; gap: 8px;
+      margin-bottom: 16px; font-size: .82rem;
+      color: rgba(255,255,255,.55); position: relative;
+    }
+    .breadcrumb a { color: var(--primary-light); }
+    .breadcrumb span { color: rgba(255,255,255,.3); }
+
+    /* Filter buttons */
+    .gallery-filters {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      justify-content: center; margin-bottom: 40px;
+    }
+    .gal-filter-btn {
+      padding: 10px 22px;
+      border: 2px solid var(--gray-200);
+      border-radius: 100px;
+      font-size: .85rem; font-weight: 600;
+      color: var(--gray-700); background: var(--white);
+      cursor: pointer; transition: var(--transition);
+    }
+    .gal-filter-btn:hover, .gal-filter-btn.active {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* Masonry-style responsive gallery */
+    .gallery-masonry {
+      columns: 4 240px;
+      column-gap: 16px;
+    }
+    .gallery-masonry .gal-item {
+      break-inside: avoid;
+      margin-bottom: 16px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      background: var(--gray-100);
+    }
+    .gallery-masonry .gal-item img {
+      width: 100%; height: auto;
+      display: block;
+      transition: transform .5s ease;
+    }
+    .gallery-masonry .gal-item:hover img { transform: scale(1.05); }
+
+    /* Caption overlay */
+    .gal-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(15,23,42,.88));
+      color: var(--white);
+      padding: 28px 14px 14px;
+      font-size: .82rem; font-weight: 600;
+      transform: translateY(100%);
+      transition: transform var(--transition);
+    }
+    .gal-item:hover .gal-caption { transform: translateY(0); }
+
+    .gal-category-dot {
+      position: absolute; top: 10px; left: 10px;
+      background: var(--primary);
+      color: #fff; font-size: .7rem; font-weight: 700;
+      padding: 3px 10px; border-radius: 100px;
+      text-transform: uppercase; letter-spacing: .06em;
+    }
+
+    /* Hidden items for filter */
+    .gal-item.hidden { display: none; }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed; inset: 0;
+      background: rgba(5,10,20,.95);
+      z-index: 3000;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s ease;
+      padding: 20px;
+    }
+    .lightbox.open { opacity: 1; pointer-events: all; }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+    }
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: var(--radius-lg);
+      object-fit: contain;
+      box-shadow: 0 32px 80px rgba(0,0,0,.6);
+      transform: scale(.93);
+      transition: transform .3s ease;
+    }
+    .lightbox.open .lightbox-img { transform: scale(1); }
+
+    .lightbox-caption {
+      color: rgba(255,255,255,.8);
+      margin-top: 16px;
+      font-size: .9rem;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -44px; right: 0;
+      width: 38px; height: 38px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      color: #fff;
+      border-radius: 50%;
+      display: grid; place-items: center;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .lightbox-close:hover { background: var(--primary); border-color: var(--primary); }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      color: #fff; border-radius: 50%;
+      display: grid; place-items: center;
+      font-size: 1.2rem; cursor: pointer;
+      transition: var(--transition);
+    }
+    .lightbox-nav:hover { background: var(--primary); border-color: var(--primary); }
+    .lightbox-prev { left: -60px; }
+    .lightbox-next { right: -60px; }
+
+    @media (max-width: 640px) {
+      .lightbox-prev { left: -40px; }
+      .lightbox-next { right: -40px; }
+      .gallery-masonry { columns: 2 140px; }
+    }
+  </style>
+</head>
+
+<body>
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Home">
+        <div class="nav-logo-icon" aria-hidden="true">SV</div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">ST VISHNA RRN SCHOOL</span>
+          <span class="nav-logo-sub">Excellence in Education</span>
+        </div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#academics">Academics</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="index.html#notices">Notices</a></li>
+        <li><a href="index.html#admissions">Admissions</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu" role="menu" aria-hidden="true">
+  <a href="index.html">🏠 Home</a>
+  <a href="index.html#about">🏫 About</a>
+  <a href="index.html#academics">📚 Academics</a>
+  <a href="faculty.html">👩‍🏫 Faculty</a>
+  <a href="gallery.html">🖼️ Gallery</a>
+  <a href="events.html">🎉 Events</a>
+  <a href="index.html#notices">📢 Notices</a>
+  <a href="index.html#admissions">📝 Admissions</a>
+  <a href="index.html#contact">📞 Contact</a>
+</div>
+
+<!-- PAGE HERO -->
+<header class="page-hero" aria-label="Gallery hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span aria-current="page">Gallery</span>
+    </nav>
+    <h1>Our Gallery</h1>
+    <p>Glimpses of campus life, learning, sports, and celebrations at ST VISHNA RRN SCHOOL.</p>
+  </div>
+</header>
+
+<!-- GALLERY -->
+<section class="section" aria-label="Photo gallery">
+  <div class="container">
+
+    <!-- Category filters -->
+    <div class="gallery-filters" role="group" aria-label="Filter gallery by category">
+      <button class="gal-filter-btn active" data-cat="all">All Photos</button>
+      <button class="gal-filter-btn" data-cat="campus">Campus</button>
+      <button class="gal-filter-btn" data-cat="academics">Academics</button>
+      <button class="gal-filter-btn" data-cat="sports">Sports</button>
+      <button class="gal-filter-btn" data-cat="events">Events</button>
+      <button class="gal-filter-btn" data-cat="activities">Activities</button>
+    </div>
+
+    <!-- Masonry grid -->
+    <div class="gallery-masonry" id="galleryMasonry" role="list">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
+    <img src="" alt="" class="lightbox-img" id="lightboxImg" />
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h2>ST VISHNA RRN SCHOOL</h2>
+        <p>Committed to academic excellence and holistic development since 2005.</p>
+        <nav class="social-links" aria-label="Social media">
+          <a href="#" class="social-link" aria-label="Facebook">f</a>
+          <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+          <a href="#" class="social-link" aria-label="Instagram">📷</a>
+          <a href="#" class="social-link" aria-label="YouTube">▶</a>
+        </nav>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Explore</h4><ul>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="index.html#admissions">Admissions</a></li>
+        <li><a href="index.html#notices">Notices</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li><a href="tel:+919876543210">📞 +91 9876543210</a></li>
+        <li><a href="mailto:info@stvishnrrnschool.edu.in">✉️ info@school.in</a></li>
+        <li><a href="index.html#contact">📍 Prayagraj, UP</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 ST VISHNA RRN SCHOOL. All rights reserved.</p>
+      <p>Designed with ❤️ for excellence in education.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top">↑</button>
+<button id="dark-toggle" aria-label="Toggle dark mode">🌙</button>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+<script>
+'use strict';
+
+/* ── GALLERY RENDER & FILTER ─────────────────────────────────── */
+let currentCat = 'all';
+let lightboxIndex = 0;
+let visibleItems = [];
+
+function getVisibleItems() {
+  return GALLERY_ITEMS.filter(item =>
+    currentCat === 'all' || item.category === currentCat
+  );
+}
+
+function renderGallery() {
+  const container = document.getElementById('galleryMasonry');
+  if (!container) return;
+  visibleItems = getVisibleItems();
+
+  container.innerHTML = visibleItems.map((item, i) => `
+    <div
+      class="gal-item"
+      role="listitem"
+      tabindex="0"
+      data-index="${i}"
+      aria-label="View ${item.caption}"
+    >
+      <span class="gal-category-dot">${item.label}</span>
+      <img
+        src="${item.src}"
+        alt="${item.caption}"
+        loading="lazy"
+      />
+      <div class="gal-caption">${item.caption}</div>
+    </div>
+  `).join('');
+
+  // Attach click events
+  container.querySelectorAll('.gal-item').forEach(el => {
+    const open = () => openLightbox(parseInt(el.dataset.index, 10));
+    el.addEventListener('click', open);
+    el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') open(); });
+  });
+}
+
+/* ── FILTER BUTTONS ──────────────────────────────────────────── */
+document.querySelectorAll('.gal-filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.gal-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentCat = btn.dataset.cat;
+    renderGallery();
+  });
+});
+
+/* ── LIGHTBOX ────────────────────────────────────────────────── */
+function openLightbox(index) {
+  lightboxIndex = index;
+  updateLightboxImage();
+  const lb = document.getElementById('lightbox');
+  lb.classList.add('open');
+  lb.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('lightboxClose').focus();
+}
+
+function closeLightbox() {
+  const lb = document.getElementById('lightbox');
+  lb.classList.remove('open');
+  lb.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+function updateLightboxImage() {
+  const item = visibleItems[lightboxIndex];
+  if (!item) return;
+  document.getElementById('lightboxImg').src = item.src;
+  document.getElementById('lightboxImg').alt = item.caption;
+  document.getElementById('lightboxCaption').textContent = item.caption;
+}
+
+function prevImage() {
+  lightboxIndex = (lightboxIndex - 1 + visibleItems.length) % visibleItems.length;
+  updateLightboxImage();
+}
+
+function nextImage() {
+  lightboxIndex = (lightboxIndex + 1) % visibleItems.length;
+  updateLightboxImage();
+}
+
+document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+document.getElementById('lightboxPrev').addEventListener('click', prevImage);
+document.getElementById('lightboxNext').addEventListener('click', nextImage);
+
+document.getElementById('lightbox').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeLightbox();
+});
+
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'Escape')      closeLightbox();
+  if (e.key === 'ArrowLeft')   prevImage();
+  if (e.key === 'ArrowRight')  nextImage();
+});
+
+/* ── INIT ────────────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  renderGallery();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Meet the dedicated faculty of ST VISHNA RRN SCHOOL — passionate educators shaping the next generation." />
+  <title>Faculty | ST VISHNA RRN SCHOOL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Page-specific styles ─────────────────────────────────── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--deep-blue) 0%, var(--soft-blue) 60%, rgba(249,115,22,.5) 100%);
+      padding: 130px 0 70px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(249,115,22,.15) 0%, transparent 70%);
+    }
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: var(--white);
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .page-hero p {
+      color: rgba(255,255,255,.75);
+      font-size: 1.05rem;
+      position: relative;
+    }
+    .breadcrumb {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      font-size: .82rem;
+      color: rgba(255,255,255,.55);
+      position: relative;
+    }
+    .breadcrumb a { color: var(--primary-light); }
+    .breadcrumb span { color: rgba(255,255,255,.3); }
+
+    /* Search & Filter bar */
+    .faculty-controls {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .faculty-search {
+      flex: 1;
+      min-width: 240px;
+      position: relative;
+    }
+    .faculty-search input {
+      width: 100%;
+      padding: 13px 18px 13px 44px;
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius);
+      font-size: .9rem;
+      color: var(--text-dark);
+      background: var(--white);
+      transition: border-color var(--transition);
+    }
+    .faculty-search input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .faculty-search::before {
+      content: '🔍';
+      position: absolute;
+      left: 14px; top: 50%;
+      transform: translateY(-50%);
+      font-size: 1rem;
+      pointer-events: none;
+    }
+    .filter-btns {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 10px 18px;
+      border: 2px solid var(--gray-200);
+      border-radius: 100px;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--gray-700);
+      background: var(--white);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* Extended faculty grid — larger cards on dedicated page */
+    #facultyGridFull {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+    .faculty-card-extended {
+      padding: 32px 24px;
+    }
+    .faculty-card-extended .faculty-photo {
+      width: 110px; height: 110px;
+    }
+
+    /* No results */
+    .no-results {
+      text-align: center;
+      padding: 60px;
+      color: var(--gray-500);
+      font-size: 1rem;
+      grid-column: 1 / -1;
+    }
+    .no-results .emoji { font-size: 3rem; display: block; margin-bottom: 12px; }
+
+    /* Load more */
+    .load-more-wrap { text-align: center; margin-top: 40px; }
+
+    body { padding-top: 68px; }
+  </style>
+</head>
+
+<body>
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="ST VISHNA RRN SCHOOL Home">
+        <div class="nav-logo-icon" aria-hidden="true">SV</div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">ST VISHNA RRN SCHOOL</span>
+          <span class="nav-logo-sub">Excellence in Education</span>
+        </div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#academics">Academics</a></li>
+        <li><a href="faculty.html" class="active">Faculty</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="index.html#notices">Notices</a></li>
+        <li><a href="index.html#admissions">Admissions</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" role="menu" aria-hidden="true">
+  <a href="index.html" role="menuitem">🏠 Home</a>
+  <a href="index.html#about" role="menuitem">🏫 About</a>
+  <a href="index.html#academics" role="menuitem">📚 Academics</a>
+  <a href="faculty.html" role="menuitem">👩‍🏫 Faculty</a>
+  <a href="gallery.html" role="menuitem">🖼️ Gallery</a>
+  <a href="events.html" role="menuitem">🎉 Events</a>
+  <a href="index.html#notices" role="menuitem">📢 Notices</a>
+  <a href="index.html#admissions" role="menuitem">📝 Admissions</a>
+  <a href="index.html#contact" role="menuitem">📞 Contact</a>
+</div>
+
+<!-- PAGE HERO -->
+<header class="page-hero" aria-label="Faculty page header">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span aria-current="page">Faculty</span>
+    </nav>
+    <h1>Our Faculty</h1>
+    <p>Meet the passionate educators who make learning a transformative experience.</p>
+  </div>
+</header>
+
+<!-- FACULTY SECTION -->
+<section class="section" aria-label="Faculty listing">
+  <div class="container">
+
+    <!-- Controls -->
+    <div class="faculty-controls">
+      <div class="faculty-search">
+        <input
+          type="search"
+          id="facultySearch"
+          placeholder="Search by name or subject…"
+          aria-label="Search faculty"
+          autocomplete="off"
+        />
+      </div>
+      <div class="filter-btns" role="group" aria-label="Filter by department">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="administration">Administration</button>
+        <button class="filter-btn" data-filter="science">Science</button>
+        <button class="filter-btn" data-filter="maths">Maths</button>
+        <button class="filter-btn" data-filter="languages">Languages</button>
+        <button class="filter-btn" data-filter="arts">Arts &amp; Activities</button>
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="faculty-grid faculty-card-extended" id="facultyGridFull">
+      <!-- Rendered by JS -->
+    </div>
+
+    <div class="load-more-wrap" id="loadMoreWrap" style="display:none;">
+      <button class="btn btn-orange-outline" id="loadMoreBtn">Load More Faculty</button>
+    </div>
+  </div>
+</section>
+
+<!-- Faculty Modal -->
+<div class="modal-overlay" id="facultyModal" role="dialog" aria-modal="true" aria-labelledby="modalName" aria-hidden="true">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Close modal">✕</button>
+    <img src="" alt="" class="modal-photo" id="modalPhoto" />
+    <h2 id="modalName"></h2>
+    <p class="modal-designation" id="modalDesignation"></p>
+    <div id="modalDetails"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h2>ST VISHNA RRN SCHOOL</h2>
+        <p>Committed to academic excellence and holistic development since 2005.</p>
+        <nav class="social-links" aria-label="Social media">
+          <a href="#" class="social-link" aria-label="Facebook">f</a>
+          <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+          <a href="#" class="social-link" aria-label="Instagram">📷</a>
+          <a href="#" class="social-link" aria-label="YouTube">▶</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#academics">Academics</a></li>
+          <li><a href="faculty.html">Faculty</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="index.html#admissions">Admissions</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+919876543210">📞 +91 9876543210</a></li>
+          <li><a href="mailto:info@stvishnrrnschool.edu.in">✉️ info@school.in</a></li>
+          <li><a href="index.html#contact">📍 Prayagraj, UP</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 ST VISHNA RRN SCHOOL. All rights reserved.</p>
+      <p>Designed with ❤️ for excellence in education.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top">↑</button>
+<button id="dark-toggle" aria-label="Toggle dark mode">🌙</button>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+<script>
+/* ── Faculty Page-specific Logic ────────────────────────────── */
+'use strict';
+
+// Department filter map
+const DEPT_MAP = {
+  administration: ['Administration'],
+  science:        ['Science', 'Science & Computer', 'Science and Computer'],
+  maths:          ['Mathematics', 'Maths'],
+  languages:      ['Hindi', 'English', 'Sanskrit'],
+  arts:           ['Performing Arts', 'Dance Teacher', 'Early Childhood', 'Art'],
+};
+
+let currentFilter = 'all';
+let currentSearch = '';
+const PAGE_SIZE = 12;
+let shown = PAGE_SIZE;
+
+function getFiltered() {
+  return FACULTY.filter(f => {
+    // Search filter
+    const q = currentSearch.toLowerCase();
+    const matchSearch = !q ||
+      f.name.toLowerCase().includes(q) ||
+      f.subject.toLowerCase().includes(q) ||
+      f.designation.toLowerCase().includes(q);
+
+    // Dept filter
+    let matchDept = true;
+    if (currentFilter !== 'all') {
+      const allowed = DEPT_MAP[currentFilter] || [];
+      matchDept = allowed.some(d =>
+        f.subject.toLowerCase().includes(d.toLowerCase()) ||
+        f.designation.toLowerCase().includes(d.toLowerCase())
+      );
+    }
+    return matchSearch && matchDept;
+  });
+}
+
+function renderFacultyFull() {
+  const grid = document.getElementById('facultyGridFull');
+  const loadMoreWrap = document.getElementById('loadMoreWrap');
+  if (!grid) return;
+
+  const filtered = getFiltered();
+  const toShow = filtered.slice(0, shown);
+
+  if (toShow.length === 0) {
+    grid.innerHTML = '<div class="no-results"><span class="emoji">🔍</span>No faculty members found matching your search.</div>';
+    if (loadMoreWrap) loadMoreWrap.style.display = 'none';
+    return;
+  }
+
+  grid.innerHTML = toShow.map((f, i) => `
+    <article
+      class="faculty-card faculty-card-extended reveal"
+      data-index="${FACULTY.indexOf(f)}"
+      tabindex="0"
+      role="button"
+      aria-label="View profile of ${f.name}"
+      style="transition-delay:${(i % 4) * 0.08}s"
+    >
+      <img src="${f.photo}" alt="Photo of ${f.name}" class="faculty-photo" loading="lazy" />
+      <h3>${f.name}</h3>
+      <p class="designation">${f.designation}</p>
+      <p class="subject">${f.subject || ''}</p>
+      <span class="view-more">View Profile</span>
+    </article>
+  `).join('');
+
+  // Events
+  grid.querySelectorAll('.faculty-card').forEach(card => {
+    const open = () => openFacultyModal(parseInt(card.dataset.index, 10));
+    card.addEventListener('click', open);
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+  });
+
+  // Reveal animation
+  setTimeout(() => {
+    grid.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }, 50);
+
+  // Load more
+  if (loadMoreWrap) {
+    loadMoreWrap.style.display = filtered.length > shown ? 'block' : 'none';
+  }
+}
+
+// Search
+document.getElementById('facultySearch').addEventListener('input', e => {
+  currentSearch = e.target.value;
+  shown = PAGE_SIZE;
+  renderFacultyFull();
+});
+
+// Filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.filter;
+    shown = PAGE_SIZE;
+    renderFacultyFull();
+  });
+});
+
+// Load more
+document.getElementById('loadMoreBtn').addEventListener('click', () => {
+  shown += PAGE_SIZE;
+  renderFacultyFull();
+});
+
+// Initial render (override the one in script.js)
+document.addEventListener('DOMContentLoaded', () => {
+  // script.js runs first; override the facultyGrid if it targets a different ID
+  renderFacultyFull();
+});
+</script>
+</body>
+</html>

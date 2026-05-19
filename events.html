@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="School Events at ST VISHNA RRN SCHOOL — sports, cultural, academic events and more." />
+  <title>Events | ST VISHNA RRN SCHOOL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { padding-top: 68px; }
+
+    .page-hero {
+      background:
+        linear-gradient(135deg,rgba(15,23,42,.92) 0%,rgba(30,58,138,.85) 50%,rgba(234,88,12,.75) 100%),
+        url('https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1400&q=80') center/cover no-repeat;
+      padding: 130px 0 70px;
+      text-align: center;
+    }
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem,5vw,3.5rem);
+      color: var(--white); margin-bottom: 12px;
+    }
+    .page-hero p { color: rgba(255,255,255,.75); font-size: 1.05rem; }
+    .breadcrumb {
+      display: flex; justify-content: center; gap: 8px;
+      margin-bottom: 16px; font-size: .82rem; color: rgba(255,255,255,.5);
+    }
+    .breadcrumb a { color: var(--primary-light); }
+    .breadcrumb span { color: rgba(255,255,255,.3); }
+
+    .event-filters {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      justify-content: center; margin-bottom: 44px;
+    }
+    .ev-filter-btn {
+      padding: 10px 22px; border: 2px solid var(--gray-200);
+      border-radius: 100px; font-size: .85rem; font-weight: 600;
+      color: var(--gray-700); background: var(--white);
+      cursor: pointer; transition: var(--transition);
+    }
+    .ev-filter-btn:hover, .ev-filter-btn.active {
+      border-color: var(--primary); background: var(--primary); color: var(--white);
+    }
+
+    .events-full-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(min(340px,100%),1fr));
+      gap: 28px;
+    }
+
+    .ev-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm);
+      overflow: hidden; transition: var(--transition); cursor: pointer;
+    }
+    .ev-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .ev-img-wrap { position: relative; overflow: hidden; aspect-ratio: 16/9; }
+    .ev-img { width:100%; height:100%; object-fit: cover; transition: transform .5s ease; }
+    .ev-card:hover .ev-img { transform: scale(1.06); }
+    .ev-cat-badge {
+      position: absolute; top: 12px; left: 12px;
+      background: var(--primary); color: #fff;
+      font-size: .7rem; font-weight: 700;
+      padding: 4px 12px; border-radius: 100px;
+      text-transform: uppercase; letter-spacing: .07em;
+    }
+    .ev-body { padding: 22px; }
+    .ev-date-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+    .ev-date, .ev-time { font-size: .78rem; color: var(--primary); font-weight: 600; }
+    .ev-body h3 {
+      font-family: var(--font-display); font-size: 1.1rem;
+      color: var(--deep-blue); margin-bottom: 8px; line-height: 1.3;
+    }
+    .ev-body p { font-size: .86rem; color: var(--gray-500); line-height: 1.6; margin-bottom: 10px; }
+    .ev-venue { font-size: .8rem; color: var(--gray-500); margin-bottom: 16px !important; }
+    .btn-ev-more {
+      background: none; border: none; color: var(--primary);
+      font-weight: 600; font-size: .88rem; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 0; transition: gap var(--transition); font-family: var(--font-body);
+    }
+    .btn-ev-more:hover { gap: 10px; }
+
+    /* Event Detail Modal */
+    .ev-modal-box {
+      max-width: 640px;
+      text-align: left;
+      padding: 0;
+      border-top: none !important;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      max-height: calc(100vh - 48px); /* never taller than viewport */
+    }
+    .ev-modal-img {
+      width: 100%;
+      height: 200px;
+      min-height: 200px;
+      object-fit: cover;
+      display: block;
+      flex-shrink: 0;  /* image always stays full height */
+    }
+    .ev-modal-content {
+      padding: 24px 28px 28px;
+      overflow-y: auto;  /* content scrolls inside if needed */
+      flex: 1;
+    }
+    .ev-modal-content h2 {
+      font-family: var(--font-display); font-size: 1.5rem;
+      color: var(--deep-blue); margin: 12px 0 16px; line-height: 1.25;
+    }
+    .ev-modal-meta {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+      margin-bottom: 20px; background: var(--xlight-orange);
+      border-radius: var(--radius); padding: 16px;
+      border: 1px solid rgba(249,115,22,.15);
+    }
+    .meta-label {
+      display: block; font-size: .7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .1em;
+      color: var(--primary); margin-bottom: 3px;
+    }
+    .meta-value { font-size: .87rem; color: var(--gray-700); }
+    .ev-modal-desc { font-size: .9rem; color: var(--gray-700); line-height: 1.75; }
+    .ev-modal-actions { margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+    #eventDetailModal .modal-close {
+      position: fixed;           /* fixed to viewport, never gets cut */
+      top: 16px; right: 16px;
+      background: rgba(15,23,42,.75);
+      color: #fff;
+      z-index: 2100;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: grid; place-items: center;
+      font-size: 1rem;
+      border: 2px solid rgba(255,255,255,.3);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    #eventDetailModal .modal-close:hover { background: var(--primary); border-color: var(--primary); }
+
+    .no-events {
+      text-align: center; padding: 60px 20px;
+      color: var(--gray-500); grid-column: 1/-1;
+    }
+    .no-events .no-emoji { font-size: 3rem; display: block; margin-bottom: 12px; }
+
+    @media (max-width: 560px) {
+      .ev-modal-meta { grid-template-columns: 1fr; }
+      .ev-modal-content { padding: 18px; }
+      .ev-modal-img { height: 160px; min-height: 160px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="ST VISHNA RRN SCHOOL Home">
+        <div class="nav-logo-icon" aria-hidden="true">SV</div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">ST VISHNA RRN SCHOOL</span>
+          <span class="nav-logo-sub">Excellence in Education</span>
+        </div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#academics">Academics</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="events.html" class="active">Events</a></li>
+        <li><a href="index.html#notices">Notices</a></li>
+        <li><a href="index.html#admissions">Admissions</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" role="menu" aria-hidden="true">
+  <a href="index.html" role="menuitem">🏠 Home</a>
+  <a href="index.html#about" role="menuitem">🏫 About</a>
+  <a href="index.html#academics" role="menuitem">📚 Academics</a>
+  <a href="faculty.html" role="menuitem">👩‍🏫 Faculty</a>
+  <a href="gallery.html" role="menuitem">🖼️ Gallery</a>
+  <a href="events.html" role="menuitem">🎉 Events</a>
+  <a href="index.html#notices" role="menuitem">📢 Notices</a>
+  <a href="index.html#admissions" role="menuitem">📝 Admissions</a>
+  <a href="index.html#contact" role="menuitem">📞 Contact</a>
+</div>
+
+<!-- PAGE HERO -->
+<header class="page-hero" aria-label="Events page">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span aria-current="page">Events</span>
+    </nav>
+    <h1>School Events</h1>
+    <p>From annual days to science fairs — there is always something exciting happening.</p>
+  </div>
+</header>
+
+<!-- EVENTS SECTION -->
+<section class="section" aria-labelledby="ev-section-title">
+  <div class="container">
+    <div class="section-header center" style="margin-bottom:36px;">
+      <span class="section-label">What is On</span>
+      <h2 class="section-title" id="ev-section-title">All Events</h2>
+      <p class="section-subtitle">Browse by category or view all upcoming and past school events.</p>
+    </div>
+
+    <!-- Filter buttons -->
+    <div class="event-filters" role="group" aria-label="Filter events by category">
+      <button class="ev-filter-btn active" data-cat="all">All Events</button>
+      <button class="ev-filter-btn" data-cat="Sports">Sports</button>
+      <button class="ev-filter-btn" data-cat="Academic">Academic</button>
+      <button class="ev-filter-btn" data-cat="Cultural">Cultural</button>
+      <button class="ev-filter-btn" data-cat="Health">Health and Wellness</button>
+    </div>
+
+    <!-- Events grid -->
+    <div class="events-full-grid" id="eventsFullGrid" role="list"></div>
+  </div>
+</section>
+
+<!-- EVENT DETAIL MODAL -->
+<div class="modal-overlay" id="eventDetailModal"
+     role="dialog" aria-modal="true"
+     aria-labelledby="evModalTitle" aria-hidden="true">
+  <div class="modal-box ev-modal-box">
+    <button class="modal-close" id="evModalClose" aria-label="Close event details">X</button>
+    <img src="" alt="" class="ev-modal-img" id="evModalImg" loading="lazy" />
+    <div class="ev-modal-content">
+      <span class="ev-cat-badge" id="evModalCat"
+            style="position:static;display:inline-block;margin-bottom:10px;"></span>
+      <h2 id="evModalTitle"></h2>
+      <div class="ev-modal-meta" id="evModalMeta"></div>
+      <p class="ev-modal-desc" id="evModalDesc"></p>
+      <div class="ev-modal-actions">
+        <a href="index.html#contact" class="btn btn-primary"
+           style="font-size:.85rem;padding:10px 22px;">Enquire About This Event</a>
+        <a href="index.html#admissions" class="btn btn-orange-outline"
+           style="font-size:.85rem;padding:10px 22px;">Admissions Info</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h2>ST VISHNA RRN SCHOOL</h2>
+        <p>Committed to academic excellence and holistic development since 2005.</p>
+        <nav class="social-links" aria-label="Social media">
+          <a href="#" class="social-link" aria-label="Facebook">f</a>
+          <a href="#" class="social-link" aria-label="Twitter">X</a>
+          <a href="#" class="social-link" aria-label="Instagram">In</a>
+          <a href="#" class="social-link" aria-label="YouTube">Yt</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#academics">Academics</a></li>
+          <li><a href="faculty.html">Faculty</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="index.html#notices">Notices</a></li>
+          <li><a href="index.html#admissions">Admissions</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+919876543210">+91 9876543210</a></li>
+          <li><a href="mailto:info@stvishnrrnschool.edu.in">info@school.in</a></li>
+          <li><a href="index.html#contact">Prayagraj, UP</a></li>
+          <li><span>Mon to Sat: 9 AM to 4 PM</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>2025 ST VISHNA RRN SCHOOL. All rights reserved.</p>
+      <p>Designed with care for excellence in education.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top">Up</button>
+<button id="dark-toggle" aria-label="Toggle dark mode">Moon</button>
+<a href="index.html#contact" class="sticky-contact" aria-label="Contact us">Enquire Now</a>
+
+<!-- Scripts -->
+<script src="data.js"></script>
+<script src="script.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var currentCat = 'all';
+
+  function renderEventsFull() {
+    var grid = document.getElementById('eventsFullGrid');
+    if (!grid) return;
+
+    var filtered = EVENTS.filter(function (ev) {
+      return currentCat === 'all' || ev.category === currentCat;
+    });
+
+    if (filtered.length === 0) {
+      grid.innerHTML =
+        '<div class="no-events"><span class="no-emoji">Search</span>' +
+        '<strong>No events found in this category.</strong>' +
+        '<p style="margin-top:8px;font-size:.88rem;">Check back soon or browse all events.</p></div>';
+      return;
+    }
+
+    var html = filtered.map(function (ev, i) {
+      var delay = (i % 3) * 0.1;
+      return (
+        '<article class="ev-card reveal" data-id="' + ev.id + '"' +
+        ' style="transition-delay:' + delay + 's"' +
+        ' tabindex="0" role="listitem" aria-label="Event: ' + ev.title + '">' +
+        '<div class="ev-img-wrap">' +
+        '<img src="' + ev.image + '" alt="' + ev.title + '" class="ev-img" loading="lazy" />' +
+        '<span class="ev-cat-badge">' + ev.category + '</span>' +
+        '</div>' +
+        '<div class="ev-body">' +
+        '<div class="ev-date-row">' +
+        '<span class="ev-date">' + ev.date + '</span>' +
+        '<span class="ev-time">' + ev.time + '</span>' +
+        '</div>' +
+        '<h3>' + ev.title + '</h3>' +
+        '<p>' + ev.shortDesc + '</p>' +
+        '<p class="ev-venue">' + ev.venue + '</p>' +
+        '<button class="btn-ev-more" data-open="' + ev.id + '">Read More</button>' +
+        '</div>' +
+        '</article>'
+      );
+    }).join('');
+
+    grid.innerHTML = html;
+
+    grid.querySelectorAll('.ev-card').forEach(function (card) {
+      function open() { openEvModal(parseInt(card.dataset.id, 10)); }
+      card.addEventListener('click', open);
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+      });
+    });
+
+    grid.querySelectorAll('.btn-ev-more').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        openEvModal(parseInt(btn.dataset.open, 10));
+      });
+    });
+
+    setTimeout(function () {
+      grid.querySelectorAll('.reveal').forEach(function (el) {
+        el.classList.add('visible');
+      });
+    }, 60);
+  }
+
+  function openEvModal(id) {
+    var ev = EVENTS.find(function (e) { return e.id === id; });
+    if (!ev) return;
+
+    document.getElementById('evModalImg').src = ev.image;
+    document.getElementById('evModalImg').alt = ev.title;
+    document.getElementById('evModalCat').textContent = ev.category;
+    document.getElementById('evModalTitle').textContent = ev.title;
+    document.getElementById('evModalDesc').textContent = ev.fullDesc;
+
+    document.getElementById('evModalMeta').innerHTML =
+      '<div><span class="meta-label">Date</span><span class="meta-value">' + ev.date + '</span></div>' +
+      '<div><span class="meta-label">Time</span><span class="meta-value">' + ev.time + '</span></div>' +
+      '<div><span class="meta-label">Venue</span><span class="meta-value">' + ev.venue + '</span></div>' +
+      '<div><span class="meta-label">Organizer</span><span class="meta-value">' + ev.organizer + '</span></div>';
+
+    var overlay = document.getElementById('eventDetailModal');
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('evModalClose').focus();
+  }
+
+  function closeEvModal() {
+    var overlay = document.getElementById('eventDetailModal');
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('evModalClose').addEventListener('click', closeEvModal);
+
+  document.getElementById('eventDetailModal').addEventListener('click', function (e) {
+    if (e.target === e.currentTarget) closeEvModal();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeEvModal();
+  });
+
+  document.querySelectorAll('.ev-filter-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.ev-filter-btn').forEach(function (b) {
+        b.classList.remove('active');
+      });
+      btn.classList.add('active');
+      currentCat = btn.dataset.cat;
+      renderEventsFull();
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    renderEventsFull();
+  });
+
+  /* Also run immediately if DOM is already ready */
+  if (document.readyState !== 'loading') {
+    renderEventsFull();
+  }
+}());
+</script>
+</body>
+</html>

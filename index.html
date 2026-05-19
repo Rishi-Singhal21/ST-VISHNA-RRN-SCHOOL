@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       META & SEO
+  ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ST VISHNA RRN SCHOOL – A premier CBSE-affiliated institution dedicated to academic excellence, character building, and holistic development since 2005." />
+  <meta name="keywords" content="ST VISHNA RRN SCHOOL, CBSE school Prayagraj, school admissions, academics, faculty" />
+  <meta name="author" content="ST VISHNA RRN SCHOOL" />
+  <meta property="og:title" content="ST VISHNA RRN SCHOOL | Excellence in Education" />
+  <meta property="og:description" content="Nurturing curious minds, building confident leaders since 2005." />
+  <meta property="og:type" content="website" />
+  <title>ST VISHNA RRN SCHOOL | Excellence in Education</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Extra styles for index-specific components -->
+  <style>
+    /* ── Event Cards ───────────────────────────────────────────── */
+    .events-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(340px,100%), 1fr)); gap: 24px; }
+    .event-card { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm); overflow: hidden; transition: var(--transition); }
+    .event-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .event-img-wrap { position: relative; overflow: hidden; aspect-ratio: 16/9; }
+    .event-img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .event-card:hover .event-img { transform: scale(1.06); }
+    .event-cat-badge { position: absolute; top: 12px; left: 12px; background: var(--primary); color: #fff; font-size: .72rem; font-weight: 700; padding: 4px 12px; border-radius: 100px; letter-spacing: .06em; text-transform: uppercase; }
+    .event-body { padding: 22px; }
+    .event-date-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+    .event-date, .event-time { font-size: .78rem; color: var(--primary); font-weight: 600; }
+    .event-body h3 { font-family: var(--font-display); font-size: 1.1rem; color: var(--deep-blue); margin-bottom: 8px; }
+    .event-body p  { font-size: .86rem; color: var(--gray-500); line-height: 1.6; margin-bottom: 16px; }
+    .btn-event-more { background: none; border: none; color: var(--primary); font-weight: 600; font-size: .88rem; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; padding: 0; transition: gap var(--transition); }
+    .btn-event-more:hover { gap: 10px; }
+
+    /* Event Modal extras */
+    .event-modal-box { max-width: 560px; text-align: left; padding: 0; overflow: hidden; }
+    .event-modal-img { width: 100%; height: 220px; object-fit: cover; }
+    .event-modal-body { padding: 28px 32px; }
+    .event-modal-body h2 { font-family: var(--font-display); font-size: 1.5rem; color: var(--deep-blue); margin: 12px 0 16px; }
+    .event-modal-meta { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-bottom: 18px; font-size: .82rem; color: var(--primary); font-weight: 600; }
+    .event-modal-body p { font-size: .9rem; color: var(--gray-700); line-height: 1.7; }
+    #eventModal .modal-close { top: 12px; right: 12px; background: rgba(0,0,0,.4); color: #fff; }
+    #eventModal .modal-close:hover { background: var(--primary); }
+
+    /* Stats counter section */
+    .stats-section { background: linear-gradient(135deg, var(--deep-blue), var(--soft-blue)); padding: 64px 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: rgba(255,255,255,.08); border-radius: var(--radius-xl); overflow: hidden; }
+    .stat-item { padding: 36px 24px; text-align: center; background: rgba(255,255,255,.04); transition: background var(--transition); }
+    .stat-item:hover { background: rgba(249,115,22,.15); }
+    .stat-num { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: var(--white); line-height: 1; }
+    .stat-label { font-size: .82rem; color: rgba(255,255,255,.55); margin-top: 8px; text-transform: uppercase; letter-spacing: .08em; }
+    .stat-icon { font-size: 1.8rem; margin-bottom: 12px; }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Gallery preview footer link */
+    .gallery-view-all { text-align: center; margin-top: 36px; }
+
+    /* Navbar top offset for ticker */
+    body { padding-top: 0; }
+    #hero { padding-top: 115px; }
+  </style>
+</head>
+
+<body>
+<!-- ══════════════════════════════════════════════════════════════
+     SCROLL PROGRESS
+══════════════════════════════════════════════════════════════ -->
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     NOTICE TICKER
+══════════════════════════════════════════════════════════════ -->
+<div class="notice-ticker-bar" id="noticeTicker" role="marquee" aria-label="School notices ticker">
+  <div class="ticker-track">
+    <span>Admissions Open 2025–26 — Limited Seats Available</span>
+    <span>Half-Yearly Exams from 10 Oct 2025</span>
+    <span>Annual Sports Day on 25 Nov 2025</span>
+    <span>Science Exhibition Registrations Open</span>
+    <span>PTM on 25 Sept 2025 — Attendance Compulsory</span>
+    <span>Library timings extended till 5 PM</span>
+    <!-- Duplicate for seamless loop -->
+    <span>Admissions Open 2025–26 — Limited Seats Available</span>
+    <span>Half-Yearly Exams from 10 Oct 2025</span>
+    <span>Annual Sports Day on 25 Nov 2025</span>
+    <span>Science Exhibition Registrations Open</span>
+    <span>PTM on 25 Sept 2025 — Attendance Compulsory</span>
+    <span>Library timings extended till 5 PM</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════════════════════ -->
+<nav id="navbar" role="navigation" aria-label="Main navigation" style="top:34px;">
+  <div class="container">
+    <div class="nav-inner">
+      <!-- Logo -->
+      <a href="#hero" class="nav-logo" aria-label="ST VISHNA RRN SCHOOL Home">
+        <div class="nav-logo-icon" aria-hidden="true"><img src="Events/logo stvrrn.png"></div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">ST VISHNA RRN SCHOOL</span>
+          <span class="nav-logo-sub">Excellence in Education</span>
+        </div>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#academics">Academics</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="#notices">Notices</a></li>
+        <li><a href="#admissions">Admissions</a></li>
+        <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+      </ul>
+
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" role="menu" aria-hidden="true">
+  <a href="#hero" role="menuitem">🏠 Home</a>
+  <a href="#about" role="menuitem">🏫 About</a>
+  <a href="#academics" role="menuitem">📚 Academics</a>
+  <a href="faculty.html" role="menuitem">👩‍🏫 Faculty</a>
+  <a href="gallery.html" role="menuitem">🖼️ Gallery</a>
+  <a href="events.html" role="menuitem">🎉 Events</a>
+  <a href="#notices" role="menuitem">📢 Notices</a>
+  <a href="#admissions" role="menuitem">📝 Admissions</a>
+  <a href="#contact" role="menuitem">📞 Contact</a>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     HERO SECTION
+══════════════════════════════════════════════════════════════ -->
+<section id="hero" aria-label="Hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">Estd. 2005 · Affiliated to CBSE · Prayagraj, UP</div>
+      <h1 class="hero-title">
+        ST VISHNA<br /><span>RRN SCHOOL</span>
+      </h1>
+      <p class="hero-tagline">
+        Nurturing curious minds, building confident leaders, and inspiring a lifelong love of learning — every single day.
+      </p>
+      <div class="hero-actions">
+        <a href="#about" class="btn btn-primary">Explore School ↓</a>
+        <a href="#admissions" class="btn btn-outline">Apply for Admission</a>
+      </div>
+      <div class="hero-stats" aria-label="School highlights">
+        <div class="hero-stat">
+          <h3>2,400+</h3><p>Students</p>
+        </div>
+        <div class="hero-stat">
+          <h3>120+</h3><p>Faculty</p>
+        </div>
+        <div class="hero-stat">
+          <h3>98%</h3><p>Pass Rate</p>
+        </div>
+        <div class="hero-stat">
+          <h3>20+</h3><p>Years</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator" aria-hidden="true">Scroll</div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     STATS COUNTER SECTION
+══════════════════════════════════════════════════════════════ -->
+<div class="stats-section" aria-label="School statistics">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-icon" aria-hidden="true">🎓</div>
+        <div class="stat-num"><span data-target="2400" data-suffix="+">0</span></div>
+        <div class="stat-label">Students Enrolled</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon" aria-hidden="true">👩‍🏫</div>
+        <div class="stat-num"><span data-target="120" data-suffix="+">0</span></div>
+        <div class="stat-label">Qualified Faculty</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon" aria-hidden="true">🏆</div>
+        <div class="stat-num"><span data-target="98" data-suffix="%">0</span></div>
+        <div class="stat-label">Board Pass Rate</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon" aria-hidden="true">📅</div>
+        <div class="stat-num"><span data-target="20" data-suffix="+">0</span></div>
+        <div class="stat-label">Years of Excellence</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     ABOUT SECTION
+══════════════════════════════════════════════════════════════ -->
+<section id="about" class="section" aria-labelledby="about-title">
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- Image -->
+      <div class="about-img-wrap reveal">
+        <img
+          src="https://picsum.photos/seed/campus1/800/600"
+          alt="ST VISHNA RRN SCHOOL campus building"
+          class="about-img"
+          loading="eager"
+          onerror="this.onerror=null;this.src='https://picsum.photos/seed/about/800/600';this.style.background='linear-gradient(135deg,#ffedd5,#e2e8f0)'"
+        />
+        <div class="about-badge">
+          <strong>20+</strong>
+          <span>Years of Excellence</span>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="reveal reveal-delay-1">
+        <span class="section-label">Who We Are</span>
+        <h2 class="section-title" id="about-title">Building Tomorrow's Leaders Today</h2>
+        <p class="section-subtitle">
+          ST VISHNA RRN SCHOOL is a CBSE-affiliated institution committed to delivering world-class education in a nurturing environment. Since 2005, we have shaped young minds with academic rigor, creative expression, and strong values.
+        </p>
+        <p style="font-size:.9rem;color:var(--gray-500);margin-top:14px;line-height:1.75;">
+          Our state-of-the-art campus, experienced faculty, and holistic curriculum ensure every student reaches their full potential — academically, socially, and personally.
+        </p>
+
+        <div class="vm-grid">
+          <div class="vm-card">
+            <h4>Our Vision</h4>
+            <p>A center of excellence developing globally competent, socially responsible citizens.</p>
+          </div>
+          <div class="vm-card">
+            <h4>Our Mission</h4>
+            <p>Quality education fostering critical thinking, creativity, and compassion.</p>
+          </div>
+          <div class="vm-card">
+            <h4>Core Values</h4>
+            <p>Integrity · Respect · Excellence · Innovation · Inclusiveness</p>
+          </div>
+          <div class="vm-card">
+            <h4>Our Promise</h4>
+            <p>Every child matters. Every dream deserves support. Every student achieves here.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     PRINCIPAL'S MESSAGE
+══════════════════════════════════════════════════════════════ -->
+<section class="section principal-section" aria-labelledby="principal-title">
+  <div class="container">
+    <div class="principal-inner">
+      <div class="principal-photo-wrap reveal">
+        <img
+          src="https://ui-avatars.com/api/?name=Anita+Sharma&background=f97316&color=fff&size=200&bold=true&rounded=true"
+          alt="Dr. Anita Sharma, Principal"
+          class="principal-photo"
+          loading="lazy"
+        />
+        <p class="principal-name" id="principal-title">Dr. Anita Sharma</p>
+        <p class="principal-title">Principal, ST VISHNA RRN SCHOOL</p>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <span class="section-label" style="background:rgba(249,115,22,.2);color:#fed7aa;">Principal's Message</span>
+        <p class="principal-text" style="margin-top:20px;">
+          At ST VISHNA RRN SCHOOL, we believe that education is not merely the transfer of knowledge — it is the ignition of a spark that will light the way for a lifetime. We are committed to creating an environment where every child feels seen, valued, and inspired. Our dedicated faculty, vibrant curriculum, and supportive community work together to nurture not just scholars, but compassionate human beings who will contribute meaningfully to the world.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     ACADEMICS SECTION
+══════════════════════════════════════════════════════════════ -->
+<section id="academics" class="section section-alt" aria-labelledby="academics-title">
+  <div class="container">
+    <header class="section-header center">
+      <span class="section-label">Curriculum</span>
+      <h2 class="section-title" id="academics-title">Academic Programmes</h2>
+      <p class="section-subtitle">From foundational learning to board-level preparation — a comprehensive, CBSE-aligned curriculum for every stage.</p>
+    </header>
+
+    <div class="academics-grid">
+      <article class="academic-card reveal">
+        <div class="academic-icon" aria-hidden="true">🌱</div>
+        <h3>Pre-Primary (Nursery – KG)</h3>
+        <p>Play-based, activity-rich learning that builds curiosity and confidence at the earliest stage.</p>
+        <ul>
+          <li>Montessori-inspired methods</li>
+          <li>Language &amp; numeracy basics</li>
+          <li>Creative arts &amp; music</li>
+        </ul>
+      </article>
+      <article class="academic-card reveal reveal-delay-1">
+        <div class="academic-icon" aria-hidden="true">📖</div>
+        <h3>Primary (Class I – V)</h3>
+        <p>Strong foundational skills with emphasis on conceptual understanding and holistic growth.</p>
+        <ul>
+          <li>CBSE syllabus with NEP 2020 alignment</li>
+          <li>Project-based learning</li>
+          <li>Sports &amp; co-curricular integration</li>
+        </ul>
+      </article>
+      <article class="academic-card reveal reveal-delay-2">
+        <div class="academic-icon" aria-hidden="true">🔬</div>
+        <h3>Middle School (Class VI – VIII)</h3>
+        <p>Deepening subject knowledge with labs, workshops, and exploratory learning experiences.</p>
+        <ul>
+          <li>Science &amp; Maths labs</li>
+          <li>Computer Science</li>
+          <li>Environmental awareness</li>
+        </ul>
+      </article>
+      <article class="academic-card reveal reveal-delay-3">
+        <div class="academic-icon" aria-hidden="true">🎓</div>
+        <h3>Secondary (Class IX – X)</h3>
+        <p>Board-focused preparation with in-depth coaching, mock exams, and personalized mentorship.</p>
+        <ul>
+          <li>CBSE Board Exam preparation</li>
+          <li>All five core subjects</li>
+          <li>Career counselling sessions</li>
+        </ul>
+      </article>
+      <article class="academic-card reveal">
+        <div class="academic-icon" aria-hidden="true">🧮</div>
+        <h3>Senior Secondary – Science (XI – XII)</h3>
+        <p>Rigorous PCM / PCB streams with lab-intensive learning and competitive exam guidance.</p>
+        <ul>
+          <li>Physics · Chemistry · Maths / Biology</li>
+          <li>JEE / NEET orientation</li>
+          <li>Research projects</li>
+        </ul>
+      </article>
+      <article class="academic-card reveal reveal-delay-1">
+        <div class="academic-icon" aria-hidden="true">📊</div>
+        <h3>Senior Secondary – Commerce (XI – XII)</h3>
+        <p>Commerce and humanities streams with practical exposure and entrepreneurial thinking.</p>
+        <ul>
+          <li>Accountancy · Business Studies</li>
+          <li>Economics · Entrepreneurship</li>
+          <li>CA / MBA foundation preparation</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     FACULTY PREVIEW
+══════════════════════════════════════════════════════════════ -->
+<section id="faculty" class="section" aria-labelledby="faculty-title">
+  <div class="container">
+    <header class="section-header center">
+      <span class="section-label">Our Educators</span>
+      <h2 class="section-title" id="faculty-title">Meet Our Faculty</h2>
+      <p class="section-subtitle">Passionate, qualified, and dedicated — our teachers are the backbone of every student's success.</p>
+    </header>
+
+    <div class="faculty-grid" id="facultyGrid">
+      <!-- Rendered by script.js -->
+    </div>
+
+    <div class="gallery-view-all" style="margin-top:40px;">
+      <a href="faculty.html" class="btn btn-orange-outline">View All Faculty →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Faculty Modal -->
+<div class="modal-overlay" id="facultyModal" role="dialog" aria-modal="true" aria-labelledby="modalName" aria-hidden="true">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Close modal">✕</button>
+    <img src="" alt="" class="modal-photo" id="modalPhoto" />
+    <h2 id="modalName"></h2>
+    <p class="modal-designation" id="modalDesignation"></p>
+    <div id="modalDetails"></div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     TOPPERS SECTION
+══════════════════════════════════════════════════════════════ -->
+<section id="toppers" class="section section-alt" aria-labelledby="toppers-title">
+  <div class="container">
+    <header class="section-header center">
+      <span class="section-label">Hall of Fame</span>
+      <h2 class="section-title" id="toppers-title">Our Brilliant Toppers</h2>
+      <p class="section-subtitle">Celebrating the extraordinary students who have made us proud year after year.</p>
+    </header>
+    <div class="toppers-grid" id="toppersGrid">
+      <!-- Rendered by script.js -->
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     EVENTS PREVIEW
+══════════════════════════════════════════════════════════════ -->
+<section id="events" class="section" aria-labelledby="events-title">
+  <div class="container">
+    <header class="section-header center">
+      <span class="section-label">What's On</span>
+      <h2 class="section-title" id="events-title">Upcoming Events</h2>
+      <p class="section-subtitle">From sports days to science fairs — there's always something exciting happening at school.</p>
+    </header>
+
+    <div class="events-grid" id="eventsGrid">
+      <!-- Rendered by script.js -->
+    </div>
+
+    <div class="gallery-view-all" style="margin-top:40px;">
+      <a href="events.html" class="btn btn-orange-outline">View All Events →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Event Modal -->
+<div class="modal-overlay" id="eventModal" aria-hidden="true"></div>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     NOTICES SECTION
+══════════════════════════════════════════════════════════════ -->
+<section id="notices" class="section section-alt" aria-labelledby="notices-title">
+  <div class="container">
+    <header class="section-header">
+      <span class="section-label">Latest Updates</span>
+      <h2 class="section-title" id="notices-title">Notices &amp; Announcements</h2>
+      <p class="section-subtitle">Stay informed with the latest news, exam updates, and school announcements.</p>
+    </header>
+
+    <div class="notices-layout">
+      <div class="notice-list" id="noticeList">
+        <!-- Rendered by script.js -->
+      </div>
+      <aside class="ticker-box" aria-label="Quick updates">
+        <h3>⚡ Quick Updates</h3>
+        <div class="ticker-item"><span class="ticker-dot"></span>Annual Day celebration — 15 Nov 2025</div>
+        <div class="ticker-item"><span class="ticker-dot"></span>Half-yearly exams from 10 Oct 2025</div>
+        <div class="ticker-item"><span class="ticker-dot"></span>Science Exhibition registrations open</div>
+        <div class="ticker-item"><span class="ticker-dot"></span>PTM scheduled for 25 Sept 2025</div>
+        <div class="ticker-item"><span class="ticker-dot"></span>Scholarship test results declared</div>
+        <div class="ticker-item"><span class="ticker-dot"></span>Library timings extended till 5 PM</div>
+        <div class="ticker-item"><span class="ticker-dot"></span>Yoga Day event — 21 June 2025</div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     ADMISSIONS SECTION
+══════════════════════════════════════════════════════════════ -->
+<section id="admissions" class="section" aria-labelledby="admissions-title">
+  <div class="container">
+    <header class="section-header">
+      <span class="section-label">Join Us</span>
+      <h2 class="section-title" id="admissions-title">Admissions 2025–26</h2>
+      <p class="section-subtitle">Admissions are now open. Follow these simple steps to secure your child's future.</p>
+    </header>
+
+    <div class="admissions-grid">
+      <!-- Steps -->
+      <div>
+        <h3>How to Apply</h3>
+        <ol class="steps-list" aria-label="Admission steps">
+          <li class="step-item reveal">
+            <div class="step-num" aria-hidden="true"></div>
+            <div class="step-content">
+              <h4>Collect the Prospectus</h4>
+              <p>Visit the school office or download the prospectus. Contains all details about fees, streams, and facilities.</p>
+            </div>
+          </li>
+          <li class="step-item reveal reveal-delay-1">
+            <div class="step-num" aria-hidden="true"></div>
+            <div class="step-content">
+              <h4>Submit Application Form</h4>
+              <p>Fill out and submit the admission form along with all required documents to the school office.</p>
+            </div>
+          </li>
+          <li class="step-item reveal reveal-delay-2">
+            <div class="step-num" aria-hidden="true"></div>
+            <div class="step-content">
+              <h4>Entrance Assessment</h4>
+              <p>Students (Class III onwards) appear for a written test and interaction with the principal.</p>
+            </div>
+          </li>
+          <li class="step-item reveal reveal-delay-3">
+            <div class="step-num" aria-hidden="true"></div>
+            <div class="step-content">
+              <h4>Confirmation &amp; Fee Payment</h4>
+              <p>Upon selection, receive the offer letter and complete fee payment to confirm the seat.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Eligibility -->
+      <div class="reveal reveal-delay-1">
+        <div class="eligibility-card">
+          <h3>Eligibility Criteria</h3>
+          <div class="eligibility-item">
+            <div class="eligibility-icon" aria-hidden="true">🧒</div>
+            <div>
+              <h5>Age Requirement</h5>
+              <p>Nursery: 3+ yrs · KG: 4+ yrs · Class I: 5+ yrs as on 1st April of the admission year.</p>
+            </div>
+          </div>
+          <div class="eligibility-item">
+            <div class="eligibility-icon" aria-hidden="true">📄</div>
+            <div>
+              <h5>Documents Required</h5>
+              <p>Birth certificate, Aadhaar card, previous school TC, mark sheets (Class II+), passport photos.</p>
+            </div>
+          </div>
+          <div class="eligibility-item">
+            <div class="eligibility-icon" aria-hidden="true">📅</div>
+            <div>
+              <h5>Admission Schedule</h5>
+              <p>Registration: Jan–Feb · Entrance Test: March · Results: March-end · Classes begin: April.</p>
+            </div>
+          </div>
+          <div class="eligibility-item">
+            <div class="eligibility-icon" aria-hidden="true">💰</div>
+            <div>
+              <h5>Fee Structure</h5>
+              <p>Competitive and affordable. Scholarships available for meritorious and economically weaker students.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="admission-cta-box">
+          <h4>Admissions Open Now!</h4>
+          <p>Limited seats available for 2025–26. Don't miss your chance.</p>
+          <a href="#contact" class="btn btn-outline" style="display:inline-flex;justify-content:center;">
+            Contact Admissions Office
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     GALLERY PREVIEW
+══════════════════════════════════════════════════════════════ -->
+<section id="gallery" class="section section-alt" aria-labelledby="gallery-title">
+  <div class="container">
+    <header class="section-header center">
+      <span class="section-label">Campus Life</span>
+      <h2 class="section-title" id="gallery-title">Our Gallery</h2>
+      <p class="section-subtitle">Glimpses of life, learning, and laughter at ST VISHNA RRN SCHOOL.</p>
+    </header>
+
+    <div class="gallery-grid">
+      <div class="gallery-item reveal" data-label="Campus">
+        <img src="https://picsum.photos/seed/campus1/600/400" alt="School campus building" loading="lazy" />
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" data-label="Library">
+        <img src="https://picsum.photos/seed/library/600/400" alt="School library" loading="lazy" />
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" data-label="Science Lab">
+        <img src="https://picsum.photos/seed/sciencelab/600/400" alt="Science laboratory" loading="lazy" />
+      </div>
+      <div class="gallery-item reveal reveal-delay-3" data-label="Sports">
+        <img src="https://picsum.photos/seed/sportsday/600/400" alt="Sports activity" loading="lazy" />
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" data-label="Art Room">
+        <img src="https://picsum.photos/seed/artroom/600/400" alt="Art room" loading="lazy" />
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" data-label="Annual Day">
+        <img src="https://picsum.photos/seed/annualday/600/400" alt="Annual day" loading="lazy" />
+      </div>
+      <div class="gallery-item reveal reveal-delay-3" data-label="Computer Lab">
+        <img src="https://picsum.photos/seed/computerlab/600/400" alt="Computer lab" loading="lazy" />
+      </div>
+    </div>
+
+    <div class="gallery-view-all">
+      <a href="gallery.html" class="btn btn-orange-outline">View Full Gallery →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     QUOTE SECTION
+══════════════════════════════════════════════════════════════ -->
+<section id="quote" aria-label="Daily motivational quote">
+  <div class="container">
+    <div class="quote-inner">
+      <span class="section-label" style="background:rgba(255,255,255,.15);color:#fed7aa;border-color:rgba(255,255,255,.2);">Daily Inspiration</span>
+      <blockquote>
+        <p class="quote-text" id="quoteText"></p>
+        <footer class="quote-author" id="quoteAuthor"></footer>
+      </blockquote>
+      <button class="quote-refresh" id="quoteRefresh" aria-label="Get new quote">↺ New Quote</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     TESTIMONIALS
+══════════════════════════════════════════════════════════════ -->
+<section class="section" aria-labelledby="testimonials-title">
+  <div class="container">
+    <header class="section-header center">
+      <span class="section-label">What Parents Say</span>
+      <h2 class="section-title" id="testimonials-title">Voices of Our Community</h2>
+      <p class="section-subtitle">Hear from the parents, students, and alumni who are part of our growing family.</p>
+    </header>
+    <div class="testimonials-grid" id="testimonialsGrid">
+      <!-- Rendered by script.js -->
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     FAQ SECTION
+══════════════════════════════════════════════════════════════ -->
+<section class="section section-alt" aria-labelledby="faq-title">
+  <div class="container">
+    <header class="section-header center">
+      <span class="section-label">Got Questions?</span>
+      <h2 class="section-title" id="faq-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Everything you need to know about admissions, academics, and school life.</p>
+    </header>
+    <div class="faq-list" id="faqList">
+      <!-- Rendered by script.js -->
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     CONTACT SECTION
+══════════════════════════════════════════════════════════════ -->
+<section id="contact" class="section" aria-labelledby="contact-title">
+  <div class="container">
+    <header class="section-header center">
+      <span class="section-label">Get in Touch</span>
+      <h2 class="section-title" id="contact-title">Contact Us</h2>
+      <p class="section-subtitle">We'd love to hear from you. Reach out for admissions, queries, or a campus visit.</p>
+    </header>
+
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <div class="contact-icon" aria-hidden="true">📍</div>
+            <div>
+              <h4>Our Address</h4>
+              <p>ST VISHNA RRN SCHOOL Campus,<br />Sector 14, Near City Mall,<br />Prayagraj, Uttar Pradesh – 211001</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon" aria-hidden="true">📞</div>
+            <div>
+              <h4>Phone Numbers</h4>
+              <p>Main Office: <a href="tel:+919876543210">+91 9876543210</a><br />Admissions: <a href="tel:+919876543211">+91 9876543211</a><br />Mon–Sat, 9 AM – 4 PM</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon" aria-hidden="true">✉️</div>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:info@stvishnrrnschool.edu.in">info@stvishnrrnschool.edu.in</a><br /><a href="mailto:admissions@stvishnrrnschool.edu.in">admissions@stvishnrrnschool.edu.in</a></p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon" aria-hidden="true">🕐</div>
+            <div>
+              <h4>School Hours</h4>
+              <p>Monday – Saturday: 7:30 AM – 2:00 PM<br />Office: 9:00 AM – 4:30 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="map-placeholder" role="img" aria-label="Map – location of ST VISHNA RRN SCHOOL">
+          <span aria-hidden="true">🗺️</span>
+          <strong style="color:var(--deep-blue);">Map Coming Soon</strong>
+          <p style="font-size:.82rem;max-width:220px;text-align:center;color:var(--gray-500);">
+            Replace this block with a Google Maps embed for the school's exact location.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════════ -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <h2>ST VISHNA RRN SCHOOL</h2>
+        <p>Committed to academic excellence and holistic development since 2005. Building confident, compassionate, and capable young Indians.</p>
+        <nav class="social-links" aria-label="Social media">
+          <a href="#" class="social-link" aria-label="Facebook">f</a>
+          <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+          <a href="#" class="social-link" aria-label="Instagram">📷</a>
+          <a href="#" class="social-link" aria-label="YouTube">▶</a>
+        </nav>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#academics">Academics</a></li>
+          <li><a href="faculty.html">Faculty</a></li>
+          <li><a href="#toppers">Toppers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#notices">Notices</a></li>
+          <li><a href="#admissions">Admissions</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+919876543210">📞 +91 9876543210</a></li>
+          <li><a href="mailto:info@stvishnrrnschool.edu.in">✉️ info@school.in</a></li>
+          <li><a href="#contact">📍 Prayagraj, UP</a></li>
+          <li><span>📅 Mon–Sat: 9AM–4PM</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 ST VISHNA RRN SCHOOL. All rights reserved.</p>
+      <p>Designed with ❤️ for excellence in education.</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     FLOATING BUTTONS
+══════════════════════════════════════════════════════════════ -->
+<button id="back-to-top" aria-label="Back to top">↑</button>
+<button id="dark-toggle" aria-label="Toggle dark mode">🌙</button>
+<a href="#contact" class="sticky-contact" aria-label="Contact us">📞 Enquire Now</a>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════════════════════════ -->
+<script src="data.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
