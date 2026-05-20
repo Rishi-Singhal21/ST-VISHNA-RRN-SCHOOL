@@ -141,7 +141,7 @@
   <div class="container">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo" aria-label="ST VISHNA RRN SCHOOL Home">
-        <div class="nav-logo-icon" aria-hidden="true">SV</div>
+        <div class="nav-logo-icon" aria-hidden="true"><img src="Events/logo stvrrn.png"></div>
         <div class="nav-logo-text">
           <span class="nav-logo-name">ST VISHNA RRN SCHOOL</span>
           <span class="nav-logo-sub">Excellence in Education</span>
@@ -354,7 +354,10 @@ function renderFacultyFull() {
       aria-label="View profile of ${f.name}"
       style="transition-delay:${(i % 4) * 0.08}s"
     >
-      <img src="${f.photo}" alt="Photo of ${f.name}" class="faculty-photo" loading="lazy" />
+      <div class="faculty-photo-wrap">
+        <img src="${f.photo}" alt="Photo of ${f.name}" class="faculty-photo" loading="eager" decoding="async" />
+        <div class="faculty-photo-placeholder">${f.name.split(' ').map(n => n[0]).join('').substring(0,2)}</div>
+      </div>
       <h3>${f.name}</h3>
       <p class="designation">${f.designation}</p>
       <p class="subject">${f.subject || ''}</p>
@@ -367,6 +370,27 @@ function renderFacultyFull() {
     const open = () => openFacultyModal(parseInt(card.dataset.index, 10));
     card.addEventListener('click', open);
     card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+  });
+
+  // Image load/error handling
+  grid.querySelectorAll('.faculty-photo').forEach(img => {
+    const wrap = img.closest('.faculty-photo-wrap');
+    const placeholder = wrap ? wrap.querySelector('.faculty-photo-placeholder') : null;
+    img.addEventListener('load', () => {
+      img.style.opacity = '1';
+      if (placeholder) placeholder.style.display = 'none';
+    });
+    img.addEventListener('error', () => {
+      img.style.display = 'none';
+      if (placeholder) placeholder.style.display = 'flex';
+    });
+    if (img.complete && img.naturalWidth > 0) {
+      img.style.opacity = '1';
+      if (placeholder) placeholder.style.display = 'none';
+    } else if (img.complete && img.naturalWidth === 0) {
+      img.style.display = 'none';
+      if (placeholder) placeholder.style.display = 'flex';
+    }
   });
 
   // Reveal animation

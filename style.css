@@ -1864,3 +1864,112 @@ img.loaded, img:not([loading]) { opacity: 1; }
 img {
   background-color: var(--gray-100);
 }
+
+/* ================================================================
+   FACULTY PHOTO WRAP — placeholder shown until real image loads
+   ================================================================ */
+.faculty-photo-wrap {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* The real photo — starts invisible, fades in on load */
+.faculty-photo-wrap .faculty-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .4s ease;
+  margin: 0;               /* override old margin since wrap handles it */
+  border: 3px solid var(--light-orange);
+  background: transparent;
+}
+
+/* Initials placeholder — shown by default, hidden once image loads */
+.faculty-photo-placeholder {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  border: 3px solid var(--light-orange);
+  z-index: 0;
+  text-transform: uppercase;
+}
+
+/* When image is loaded, it sits on top */
+.faculty-photo-wrap .faculty-photo[style*="opacity: 1"],
+.faculty-photo-wrap .faculty-photo.loaded {
+  z-index: 1;
+}
+
+/* Hover — orange border on wrap */
+.faculty-card:hover .faculty-photo-wrap .faculty-photo,
+.faculty-card:hover .faculty-photo-wrap .faculty-photo-placeholder {
+  border-color: var(--primary);
+}
+
+/* Larger wrap on the dedicated faculty page */
+.faculty-card-extended .faculty-photo-wrap {
+  width: 110px;
+  height: 110px;
+}
+.faculty-card-extended .faculty-photo-wrap .faculty-photo-placeholder {
+  font-size: 1.7rem;
+}
+
+/* ================================================================
+   GALLERY & EVENT IMAGE PLACEHOLDERS
+   ================================================================ */
+
+/* Gallery item base — gradient bg visible until image loads */
+.gallery-item,
+.gal-item {
+  background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
+}
+
+/* Gallery images — invisible until loaded */
+.gallery-item img,
+.gal-item img,
+.gal-img {
+  opacity: 0;
+  transition: opacity .4s ease;
+  position: relative;
+  z-index: 1;
+}
+.gallery-item img.img-loaded,
+.gal-item img.img-loaded,
+.gal-img.img-loaded {
+  opacity: 1;
+}
+
+/* Event image wrapper placeholder */
+.ev-img-wrap,
+.event-img-wrap {
+  background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
+}
+
+/* Event images — invisible until loaded */
+.ev-img,
+.event-img {
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+.ev-img.img-loaded,
+.event-img.img-loaded {
+  opacity: 1;
+}

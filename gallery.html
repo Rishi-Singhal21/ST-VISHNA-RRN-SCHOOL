@@ -342,7 +342,9 @@ function renderGallery() {
       <img
         src="${item.src}"
         alt="${item.caption}"
-        loading="lazy"
+        loading="eager"
+        decoding="async"
+        class="gal-img"
       />
       <div class="gal-caption">${item.caption}</div>
     </div>
@@ -353,6 +355,16 @@ function renderGallery() {
     const open = () => openLightbox(parseInt(el.dataset.index, 10));
     el.addEventListener('click', open);
     el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') open(); });
+  });
+
+  // Image load handlers — fade in on load, keep placeholder on error
+  container.querySelectorAll('.gal-img').forEach(img => {
+    if (img.complete && img.naturalWidth > 0) {
+      img.classList.add('img-loaded');
+    } else {
+      img.addEventListener('load', () => img.classList.add('img-loaded'));
+      img.addEventListener('error', () => img.style.display = 'none');
+    }
   });
 }
 

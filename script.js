@@ -289,27 +289,54 @@ function renderFaculty(observer) {
   const grid = document.getElementById('facultyGrid');
   if (!grid) return;
 
-  grid.innerHTML = FACULTY.map((f, i) => `
+  grid.innerHTML = FACULTY.map((f, i) => {
+    const delay = i % 4 !== 0 ? ' reveal-delay-' + (i % 4) : '';
+    return `
     <article
-      class="faculty-card reveal${i % 4 !== 0 ? ' reveal-delay-' + (i % 4) : ''}"
+      class="faculty-card reveal${delay}"
       data-index="${i}"
       tabindex="0"
       role="button"
       aria-label="View profile of ${f.name}"
     >
-      <img
-        src="${f.photo}"
-        alt="Photo of ${f.name}"
-        class="faculty-photo"
-        loading="eager"
-        onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(f.name)}&background=f97316&color=fff&size=200&bold=true&rounded=true'"
-      />
+      <div class="faculty-photo-wrap">
+        <img
+          src="${f.photo}"
+          alt="Photo of ${f.name}"
+          class="faculty-photo"
+          loading="eager"
+          decoding="async"
+        />
+        <div class="faculty-photo-placeholder">${f.name.split(' ').map(n => n[0]).join('').substring(0,2)}</div>
+      </div>
       <h3>${f.name}</h3>
       <p class="designation">${f.designation}</p>
       <p class="subject">${f.subject || ''}</p>
       <span class="view-more">View Profile</span>
-    </article>
-  `).join('');
+    </article>`;
+  }).join('');
+
+  // Show placeholder if image fails, hide if loaded
+  grid.querySelectorAll('.faculty-photo').forEach(img => {
+    img.addEventListener('load', () => {
+      img.style.opacity = '1';
+      const placeholder = img.closest('.faculty-photo-wrap').querySelector('.faculty-photo-placeholder');
+      if (placeholder) placeholder.style.display = 'none';
+    });
+    img.addEventListener('error', () => {
+      img.style.display = 'none';
+      const placeholder = img.closest('.faculty-photo-wrap').querySelector('.faculty-photo-placeholder');
+      if (placeholder) placeholder.style.display = 'flex';
+    });
+    // If already loaded (cached)
+    if (img.complete && img.naturalWidth > 0) {
+      img.style.opacity = '1';
+      const placeholder = img.closest('.faculty-photo-wrap').querySelector('.faculty-photo-placeholder');
+      if (placeholder) placeholder.style.display = 'none';
+    } else if (img.complete && img.naturalWidth === 0) {
+      img.style.display = 'none';
+    }
+  });
 
   // Attach events
   grid.querySelectorAll('.faculty-card').forEach(card => {
@@ -346,8 +373,7 @@ function renderToppers(observer) {
   grid.innerHTML = TOPPERS.map((t, i) => `
     <article class="topper-card reveal${i % 4 !== 0 ? ' reveal-delay-' + (i % 4) : ''}">
       <div class="topper-rank ${rankClass(t.rank)}" aria-label="Rank ${t.rank}">${rankIcon(t.rank)}</div>
-      <img src="${t.photo}" alt="Photo of ${t.name}" class="topper-photo" loading="eager"
-        onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(t.name)}&background=f97316&color=fff&size=200&bold=true&rounded=true'" />
+      <img src="${t.photo}" alt="Photo of ${t.name}" class="topper-photo" loading="eager" decoding="async" />
       <h3>${t.name}</h3>
       <div class="topper-percent">${t.percent}</div>
       <p class="topper-meta">${t.class} · ${t.year}</p>
@@ -397,8 +423,7 @@ function renderEventsPreview(observer) {
   grid.innerHTML = EVENTS.slice(0, 3).map((ev, i) => `
     <article class="event-card reveal${i !== 0 ? ' reveal-delay-' + i : ''}" data-id="${ev.id}">
       <div class="event-img-wrap">
-        <img src="${ev.image}" alt="${ev.title}" loading="eager" class="event-img"
-          onerror="this.onerror=null;this.style.background='linear-gradient(135deg,#ffedd5,#e2e8f0)';this.src=''" />
+        <img src="${ev.image}" alt="${ev.title}" loading="eager" decoding="async" class="event-img" />
         <span class="event-cat-badge">${ev.category}</span>
       </div>
       <div class="event-body">
@@ -416,6 +441,16 @@ function renderEventsPreview(observer) {
   `).join('');
 
   if (observer) grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Image load handlers for event cards
+  grid.querySelectorAll('.event-img').forEach(img => {
+    if (img.complete && img.naturalWidth > 0) {
+      img.classList.add('img-loaded');
+    } else {
+      img.addEventListener('load', () => img.classList.add('img-loaded'));
+      img.addEventListener('error', () => img.style.display = 'none');
+    }
+  });
 }
 
 /* ══════════════════════════════════════════════════════════════
@@ -476,8 +511,7 @@ function renderTestimonials(observer) {
     <article class="testimonial-card reveal${i !== 0 ? ' reveal-delay-' + i : ''}">
       <p class="testimonial-text">${t.text}</p>
       <div class="testimonial-author">
-        <img src="${t.photo}" alt="${t.name}" class="testimonial-avatar" loading="eager"
-          onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(t.name)}&background=f97316&color=fff&size=200&bold=true&rounded=true'" />
+        <img src="${t.photo}" alt="${t.name}" class="testimonial-avatar" loading="eager" decoding="async" />
         <div>
           <div class="testimonial-name">${t.name}</div>
           <div class="testimonial-role">${t.role}</div>
