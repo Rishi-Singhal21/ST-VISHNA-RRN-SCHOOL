@@ -8,7 +8,7 @@
 /* ── FACULTY DATA ─────────────────────────────────────────────── */
 const FACULTY = [
   {
-    name: 'Dr. Anita Sharma',
+    name: 'Mrs. Asha Tripathi',
     designation: 'Principal',
     subject: 'Administration',
     photo: 'assets/images/faculty/anita-sharma.jpg',
