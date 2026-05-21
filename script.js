@@ -289,7 +289,12 @@ function renderFaculty(observer) {
   const grid = document.getElementById('facultyGrid');
   if (!grid) return;
 
-  grid.innerHTML = FACULTY.map((f, i) => {
+  // Check if we are on the homepage or if the grid explicitly asks to be limited
+  // Slice the array to show only the first 6 members on the homepage
+  const isHomepageGrid = grid.dataset.limit === 'true' || document.getElementById('eventsGrid') !== null;
+  const facultyToShow = isHomepageGrid ? FACULTY.slice(0, 5) : FACULTY;
+
+  grid.innerHTML = facultyToShow.map((f, i) => {
     const delay = i % 4 !== 0 ? ' reveal-delay-' + (i % 4) : '';
     return `
     <article
@@ -348,7 +353,6 @@ function renderFaculty(observer) {
   // Observe newly added cards
   if (observer) grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 }
-
 /* ══════════════════════════════════════════════════════════════
    RENDER: TOPPERS
 ══════════════════════════════════════════════════════════════ */

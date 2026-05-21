@@ -255,7 +255,7 @@ input, textarea, select { font-family: inherit; }
 }
 .nav-logo-icon {
   width: 42px; height: 42px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  /* background: linear-gradient(135deg, var(--primary), var(--primary-dark)); */
   border-radius: 10px;
   display: grid;
   place-items: center;

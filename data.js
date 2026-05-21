@@ -12,8 +12,8 @@ const FACULTY = [
     designation: 'Principal',
     subject: 'Administration',
     photo: 'Faculty/Asha Tripathi.jpeg',
-    qualification: '',
-    experience: '',
+    qualification: 'Double M.A, B.Ed',
+    experience: '32 Years',
     about: 'Visionary leader dedicated to educational innovation and student success. Mrs. Asha has transformed the school into a center of excellence since joining.'
   },
   {
@@ -29,9 +29,9 @@ const FACULTY = [
     name: 'Mr. Shashank Srivastava',
     designation: 'Co-ordinator (TGT)',
     subject: 'IT',
-    photo: '',
+    photo: 'Faculty/Shashank Srivastava.jpeg',
     qualification: 'PGDCA, M.Sc (IT), B.Ed',
-    experience: '',
+    experience: '1 Year',
     about: ''
   },
   {
@@ -40,7 +40,7 @@ const FACULTY = [
     subject: 'English',
     photo: 'Faculty/Shazia Khanam.jpeg',
     qualification: 'BBA, B.Ed',
-    experience: '',
+    experience: '1 Year',
     about: ''
   },
   {
@@ -48,8 +48,8 @@ const FACULTY = [
     designation: 'PGT',
     subject: 'Political Science',
     photo: '',
-    qualification: 'B.Ed',
-    experience: '',
+    qualification: 'M.Sc (Maths), B.Ed',
+    experience: '7 Year',
     about: ''
   },
   {
@@ -58,7 +58,7 @@ const FACULTY = [
     subject: 'English',
     photo: 'Faculty/Mishul Verma.jpeg',
     qualification: 'M.A, B.Ed',
-    experience: '',
+    experience: '11 Years',
     about: ''
   },
   {
@@ -74,9 +74,9 @@ const FACULTY = [
     name: 'Mrs. Sunita Patwa',
     designation: 'PGT',
     subject: 'Hindi',
-    photo: 'Faculty/',
+    photo: 'Faculty/Sunita Patwa.jpeg',
     qualification: 'M.A, B.Ed',
-    experience: '',
+    experience: '18 Years',
     about: ''
   },
   {
@@ -102,7 +102,7 @@ const FACULTY = [
     designation: 'PGT',
     subject: 'Biology',
     photo: 'Faculty/Shweta Singh.jpeg',
-    qualification: ', B.Ed',
+    qualification: 'M.Sc (Microbiology), B.Ed',
     experience: '3 Years',
     about: 'Biology is the only science where even multiplication means the same thing as division. It is the study of life\'s endless wonders, from a single cell to the entire biosphere.'
   },
@@ -157,7 +157,7 @@ const FACULTY = [
     subject: 'Science',
     photo: 'Faculty/Himanshu Shukla.jpeg',
     qualification: ' B.Ed',
-    experience: '',
+    experience: '2 Years',
     about: ''
   },
   {
@@ -173,16 +173,16 @@ const FACULTY = [
     name: 'Mr. Ramakant Tiwawi',
     designation: 'TGT',
     subject: 'English',
-    photo: '',
+    photo: 'Faculty/Ramakant Tiwari.jpeg',
     qualification: 'M.A, B.Ed',
-    experience: '',
+    experience: '8 Years',
     about: ''
   },
   {
     name: 'Mrs. Meena Singh',
     designation: 'TGT',
     subject: 'Hindi',
-    photo: 'Faculty/',
+    photo: 'Faculty/Meena Singh.jpeg',
     qualification: 'B.Ed',
     experience: '25 Years',
     about: ''
@@ -191,7 +191,7 @@ const FACULTY = [
     name: 'Mr. Ankit Kumar Yadav',
     designation: 'TGT',
     subject: 'Social Science',
-    photo: 'Faculty/',
+    photo: 'Faculty/Ankit Yadav.jpeg',
     qualification: 'M.Com, B.Ed',
     experience: '3 Years',
     about: ''
@@ -218,17 +218,17 @@ const FACULTY = [
     name: 'Miss Shristi Arora',
     designation: 'TGT',
     subject: 'Social Science',
-    photo: 'Faculty/',
+    photo: 'Faculty/Shristi Arora.png',
     qualification: 'M.Com, B.Ed',
-    experience: '',
+    experience: '4 Years',
     about: ''
   },
   {
-    name: 'Miss Jyoti Bhushan',
+    name: 'Miss Jyoti Singh',
     designation: 'TGT',
     subject: 'Science',
-    photo: 'Faculty',
-    qualification: 'B.Ed',
+    photo: 'Faculty/Jyoti Singh.jpeg',
+    qualification: 'M.Sc, B.Ed',
     experience: '2 Years',
     about: ''
   },
@@ -247,7 +247,7 @@ const FACULTY = [
     subject: 'Maths',
     photo: 'Faculty/Shubham Dubey.jpeg',
     qualification: 'B.Sc, B.Ed',
-    experience: '4 Years',
+    experience: '2 Years',
     about: ''
   },
   {
@@ -256,7 +256,7 @@ const FACULTY = [
     subject: 'English',
     photo: 'Faculty/Kirti Yadav.jpeg',
     qualification: 'M.A (Psychology), B.Ed',
-    experience: '',
+    experience: '4 Years',
     about: ''
   },
   {
@@ -278,10 +278,10 @@ const FACULTY = [
     about: 'Meet Tanishka Gupta — making science fun and computers easy for curious little minds. Brings fresh energy and modern teaching methods.'
   },
   {
-    name: 'Miss Akansha Bhatt',
+    name: 'Miss Akanksha Bhatt',
     designation: 'PRT',
-    subject: '',
-    photo: '',
+    subject: 'Science and Social Studies',
+    photo: 'Faculty/Akanksha Bhatt.jpeg',
     qualification: 'BTC, B.Ed',
     experience: '1 Year',
     about: ''
@@ -316,26 +316,26 @@ const FACULTY = [
   {
     name: 'Mrs. Shweta Gautam',
     designation: 'PRT',
-    subject: '',
+    subject: 'English, Hindi, Social',
     photo: 'Faculty/Shweta Gautam.jpeg',
     qualification: 'M.Sc (Biotech), M.Ed',
-    experience: '',
+    experience: '1 Month',
     about: ''
   },
   {
     name: 'Mrs. Seema Singh',
     designation: 'PRT',
     subject: 'Hindi',
-    photo: '',
+    photo: 'Faculty/Seema Singh.jpeg',
     qualification: 'M.A, B.Ed',
-    experience: '',
+    experience: '4 Years',
     about: ''
   },
   {
     name: 'Mrs. Pratibha Rai',
     designation: 'PRT',
     subject: 'Hindi',
-    photo: '',
+    photo: 'Faculty/Pratibha Rai.jpeg',
     qualification: 'M.A, B.Ed',
     experience: '10 Years',
     about: ''
@@ -362,16 +362,16 @@ const FACULTY = [
     name: 'Mrs. Nirma Mahour',
     designation: 'Librarian',
     subject: 'Library',
-    photo: '',
+    photo: 'faculty/Nirma Mahour.jpeg',
     qualification: 'Master of Library, B.Ed',
-    experience: '',
+    experience: '3 Years',
     about: ''
   },
   {
     name: 'Miss Muzzamil Fatima',
     designation: 'PRT',
     subject: 'Science',
-    photo: '',
+    photo: 'faculty/Muzzamil Fatima.jpeg',
     qualification: 'B.Sc, B.Ed',
     experience: '4 Years',
     about: ''
@@ -400,16 +400,16 @@ const FACULTY = [
     subject: 'Early Childhood',
     photo: 'Faculty/Unnati Gupta.png',
     qualification: 'Bachelors of Performing Arts',
-    experience: '8 Months',
+    experience: '6 Months',
     about: 'Meet Unnati Gupta — turning tiny tears into giggles and ABCs into daily adventures. Specialises in early childhood development and play-based learning.'
   },
   {
-    name: 'Miss Roopanshi Singh',
+    name: 'Miss Roopansi Singh',
     designation: 'PRT',
     subject: 'Social Science',
     photo: 'Faculty/Roopanshi Singh.jpeg',
     qualification: 'M.Com, B.Ed',
-    experience: '4 Years',
+    experience: '3 Years',
     about: ''
   },
   {
@@ -418,13 +418,13 @@ const FACULTY = [
     subject: 'Maths',
     photo: 'Faculty/Neetu Yadav.jpeg',
     qualification: 'M.A, B.Ed, D.El.Ed',
-    experience: '',
+    experience: '2 Years',
     about: ''
   },
   {
-    name: 'Miss Radhana Kushwaha',
-    designation: 'Drawing Teacher',
-    subject: 'Drawing',
+    name: 'Miss Radhna Kushwaha',
+    designation: 'Art Teacher',
+    subject: 'Art',
     photo: '',
     qualification: 'B.A, B.Ed',
     experience: '1 Month',
@@ -443,9 +443,9 @@ const FACULTY = [
     name: 'Mr. Deepak Kumar Singh',
     designation: 'Office Staff',
     subject: 'Administration',
-    photo: 'Faculty/',
+    photo: 'Faculty/Deepak Singh.jpeg',
     qualification: 'MBA B.Ed',
-    experience: '',
+    experience: '2 Years',
     about: ''
   },
   {
