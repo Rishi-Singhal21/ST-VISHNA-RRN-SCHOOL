@@ -421,7 +421,7 @@ function renderEventsPreview(observer) {
 
   // Show only first 3 events on homepage
   grid.innerHTML = EVENTS.slice(0, 3).map((ev, i) => `
-    <article class="event-card reveal${i !== 0 ? ' reveal-delay-' + i : ''}" data-id="${ev.id}">
+    <article class="event-card reveal${i !== 0 ? ' reveal-delay-' + i : ''}" data-id="${ev.id}" style="cursor:pointer;">
       <div class="event-img-wrap">
         <img src="${ev.image}" alt="${ev.title}" loading="eager" decoding="async" class="event-img" />
         <span class="event-cat-badge">${ev.category}</span>
@@ -433,12 +433,15 @@ function renderEventsPreview(observer) {
         </div>
         <h3>${ev.title}</h3>
         <p>${ev.shortDesc}</p>
-        <button class="btn-event-more" onclick="openEventModal(${ev.id})" aria-label="Read more about ${ev.title}">
-          Read More →
-        </button>
+        <span class="btn-event-more">Read More →</span>
       </div>
     </article>
   `).join('');
+
+  // Whole-card click opens modal
+  grid.querySelectorAll('.event-card').forEach(card => {
+    card.addEventListener('click', () => openEventModal(parseInt(card.dataset.id, 10)));
+  });
 
   if (observer) grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
@@ -464,39 +467,64 @@ function openEventModal(id) {
   const overlay = document.getElementById('eventModal');
   if (!overlay) return;
 
+  // Build modal HTML
   overlay.innerHTML = `
-    <div class="modal-box event-modal-box" role="dialog" aria-modal="true" aria-label="${ev.title}">
-      <button class="modal-close" id="eventModalClose" aria-label="Close">✕</button>
-      <img src="${ev.image}" alt="${ev.title}" class="event-modal-img" loading="lazy" />
+    <div class="modal-box event-modal-box" role="dialog" aria-modal="true">
+      <button class="modal-close" id="eventModalClose" aria-label="Close modal">&#x2715;</button>
+      <img src="${ev.image}" alt="${ev.title}" class="event-modal-img" />
       <div class="event-modal-body">
         <span class="event-cat-badge">${ev.category}</span>
         <h2>${ev.title}</h2>
         <div class="event-modal-meta">
-          <span>📅 ${ev.date}</span>
-          <span>🕐 ${ev.time}</span>
-          <span>📍 ${ev.venue}</span>
-          <span>👤 ${ev.organizer}</span>
+          <span>&#128197; ${ev.date}</span>
+          <span>&#128336; ${ev.time}</span>
+          <span>&#128205; ${ev.venue}</span>
+          <span>&#128100; ${ev.organizer}</span>
         </div>
         <p>${ev.fullDesc}</p>
       </div>
     </div>
   `;
 
+  // Show overlay
   overlay.classList.add('open');
+  overlay.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
 
-  overlay.querySelector('#eventModalClose').addEventListener('click', closeEventModal);
-  overlay.addEventListener('click', e => { if (e.target === overlay) closeEventModal(); });
+  // ── Attach close handlers AFTER innerHTML is set ──
+  const closeBtn = document.getElementById('eventModalClose');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      closeEventModal();
+    });
+  }
+
+  // Click on dark overlay backdrop (not the box) closes modal
+  overlay.addEventListener('click', function handleOverlayClick(e) {
+    if (e.target === overlay) {
+      closeEventModal();
+      overlay.removeEventListener('click', handleOverlayClick);
+    }
+  });
 }
 
 function closeEventModal() {
   const overlay = document.getElementById('eventModal');
   if (!overlay) return;
   overlay.classList.remove('open');
+  overlay.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+  // Clear innerHTML so stale listeners don't accumulate
+  setTimeout(() => { if (!overlay.classList.contains('open')) overlay.innerHTML = ''; }, 300);
 }
 
-// Expose to HTML onclick
+// Escape key always closes event modal
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeEventModal();
+});
+
+// Expose globally
 window.openEventModal = openEventModal;
 
 /* ══════════════════════════════════════════════════════════════

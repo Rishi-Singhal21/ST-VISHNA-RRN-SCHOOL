@@ -11,73 +11,460 @@ const FACULTY = [
     name: 'Mrs. Asha Tripathi',
     designation: 'Principal',
     subject: 'Administration',
-    photo: 'assets/images/faculty/anita-sharma.jpg',
-    qualification: 'M.Ed, Ph.D (Education)',
-    experience: '25+ Years',
-    about: 'Visionary leader dedicated to educational innovation and student success. Dr. Sharma has transformed the school into a center of excellence since joining in 2012.'
+    photo: 'Faculty/Asha Tripathi.jpeg',
+    qualification: '',
+    experience: '',
+    about: 'Visionary leader dedicated to educational innovation and student success. Mrs. Asha has transformed the school into a center of excellence since joining.'
   },
   {
-    name: 'Mr. Rajesh Verma',
-    designation: 'Senior Teacher',
-    subject: 'Mathematics',
-    photo: 'assets/images/faculty/rajesh-verma.jpg',
-    qualification: 'M.Sc (Maths), B.Ed',
-    experience: '18 Years',
-    about: 'Makes complex maths simple and enjoyable for every student. Known for his unique problem-solving techniques and patient teaching style.'
+    name: 'Mr. Indar Mandhyan',
+    designation: 'Vice Principal',
+    subject: 'Accounts',
+    photo: 'Faculty/Indar Mandhyan.jpeg',
+    qualification: 'M.Com, B.Ed',
+    experience: '22 Years',
+    about: ''
   },
   {
-    name: 'Ms. Priya Mehta',
-    designation: 'Head of Department',
+    name: 'Mr. Shashank Srivastava',
+    designation: 'Co-ordinator (TGT)',
+    subject: 'IT',
+    photo: '',
+    qualification: 'PGDCA, M.Sc (IT), B.Ed',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Mrs. Shazia Khanam',
+    designation: 'Co-ordinator (PRT)',
+    subject: 'English',
+    photo: 'Faculty/Shazia Khanam.jpeg',
+    qualification: 'BBA, B.Ed',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Mr. Anmol Shukla',
+    designation: 'PGT',
+    subject: 'Political Science',
+    photo: '',
+    qualification: 'B.Ed',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Mr. Mishul Verma',
+    designation: 'PGT',
+    subject: 'English',
+    photo: 'Faculty/Mishul Verma.jpeg',
+    qualification: 'M.A, B.Ed',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Mr. Rajeev Kumar Mishra',
+    designation: 'PGT',
+    subject: 'English',
+    photo: 'Faculty/',
+    qualification: 'M.A, LT(B.Ed)',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Mrs. Sunita Patwa',
+    designation: 'PGT',
+    subject: 'Hindi',
+    photo: 'Faculty/',
+    qualification: 'M.A, B.Ed',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Mr. Anvit Arora',
+    designation: 'PGT',
+    subject: 'Economics',
+    photo: 'Faculty/Anvit Arora.jpeg',
+    qualification: 'M.Com, B.Ed',
+    experience: '3 Years',
+    about: ''
+  },
+  {
+    name: 'Mr. Keshav Kumar Singh',
+    designation: 'PGT',
+    subject: 'Maths',
+    photo: 'Faculty/Keshav Singh.jpeg',
+    qualification: 'M.Sc, B.Ed',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Mrs. Shweta Singh',
+    designation: 'PGT',
+    subject: 'Biology',
+    photo: 'Faculty/Shweta Singh.jpeg',
+    qualification: ', B.Ed',
+    experience: '3 Years',
+    about: 'Biology is the only science where even multiplication means the same thing as division. It is the study of life\'s endless wonders, from a single cell to the entire biosphere.'
+  },
+  {
+    name: 'Mr. Ashwani Shukla',
+    designation: 'PGT',
+    subject: 'Computer Science',
+    photo: 'Faculty/Ashwani Shukla.jpeg',
+    qualification: 'MCA, B.Ed',
+    experience: '4 Years',
+    about: ''
+  },
+  {
+    name: 'Mr. Yash Bhatia',
+    designation: 'PGT',
+    subject: 'Physics',
+    photo: 'Faculty/Yash Bhatia.jpeg',
+    qualification: 'M.Sc, B.Ed',
+    experience: '1 Month',
+    about: ''
+  },
+  {
+    name: 'Mr. Santosh Prajapati',
+    designation: 'PGT',
+    subject: 'Chemistry',
+    photo: '',
+    qualification: ' B.Ed',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Miss Suman Sharma',
+    designation: 'TGT',
+    subject: 'Social Science',
+    photo: 'Faculty/Suman Sharma.jpeg',
+    qualification: 'M.Com, B.Ed',
+    experience: '10 Years',
+    about: ''
+  },
+  {
+    name: 'Mr. Prathivesh Singh',
+    designation: 'TGT',
+    subject: 'Maths',
+    photo: 'Faculty/Prathivesh Singh.jpeg',
+    qualification: 'B.Sc, B.Ed, D.El.Ed',
+    experience: '4 Years',
+    about: ''
+  },
+  {
+    name: 'Mr. Himanshu Shukla',
+    designation: 'TGT',
     subject: 'Science',
-    photo: 'assets/images/faculty/priya-mehta.jpg',
-    qualification: 'M.Sc (Physics), B.Ed',
-    experience: '15 Years',
-    about: 'Passionate about lab-based, hands-on science education. Has guided numerous students to national science olympiad victories.'
+    photo: 'Faculty/Himanshu Shukla.jpeg',
+    qualification: ' B.Ed',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Mrs. Ankur Singh',
+    designation: 'TGT',
+    subject: 'Hindi',
+    photo: '',
+    qualification: 'M.A, B.Ed',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Mr. Ramakant Tiwawi',
+    designation: 'TGT',
+    subject: 'English',
+    photo: '',
+    qualification: 'M.A, B.Ed',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Mrs. Meena Singh',
+    designation: 'TGT',
+    subject: 'Hindi',
+    photo: 'Faculty/',
+    qualification: 'B.Ed',
+    experience: '25 Years',
+    about: ''
+  },
+  {
+    name: 'Mr. Ankit Kumar Yadav',
+    designation: 'TGT',
+    subject: 'Social Science',
+    photo: 'Faculty/',
+    qualification: 'M.Com, B.Ed',
+    experience: '3 Years',
+    about: ''
+  },
+  {
+    name: 'Mr. Akash Gautam',
+    designation: 'TGT',
+    subject: 'Social Science',
+    photo: 'Faculty/Akash Gautam.jpeg',
+    qualification: 'M.Com, B.Ed',
+    experience: '8 Month',
+    about: ''
+  },
+  {
+    name: 'Mr. Anil Kumar Singh',
+    designation: 'TGT',
+    subject: 'Maths',
+    photo: 'Faculty/',
+    qualification: 'B.Ed',
+    experience: '10 Years',
+    about: ''
+  },
+  {
+    name: 'Miss Shristi Arora',
+    designation: 'TGT',
+    subject: 'Social Science',
+    photo: 'Faculty/',
+    qualification: 'M.Com, B.Ed',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Miss Jyoti Bhushan',
+    designation: 'TGT',
+    subject: 'Science',
+    photo: 'Faculty',
+    qualification: 'B.Ed',
+    experience: '2 Years',
+    about: ''
+  },
+  {
+    name: 'Miss Pooja',
+    designation: 'TGT',
+    subject: 'Hindi',
+    photo: 'Faculty/',
+    qualification: 'M.A, B.Ed',
+    experience: '3 Years',
+    about: ''
+  },
+  {
+    name: 'Mr. Shubham Dubey',
+    designation: 'TGT',
+    subject: 'Maths',
+    photo: 'Faculty/Shubham Dubey.jpeg',
+    qualification: 'B.Sc, B.Ed',
+    experience: '4 Years',
+    about: ''
+  },
+  {
+    name: 'Miss Kirti Yadav',
+    designation: 'TGT',
+    subject: 'English',
+    photo: 'Faculty/Kirti Yadav.jpeg',
+    qualification: 'M.A (Psychology), B.Ed',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Mr. Rishi Singhal',
+    designation: 'TGT',
+    subject: 'Computer Science',
+    photo: 'Faculty/Rishi Singhal.png',
+    qualification: 'B.Tech (CSE), B.Ed',
+    experience: '11 Month',
+    about: ''
   },
   {
     name: 'Miss Tanishka Gupta',
     designation: 'PRT',
     subject: 'Science & Computer',
-    photo: 'assets/images/faculty/tanishka-gupta.jpg',
-    qualification: 'M.Comm',
-    experience: '8 Months',
+    photo: 'Faculty/Tanishka Gupta.jpeg',
+    qualification: 'B.Com, B.Ed',
+    experience: '10 Months',
     about: 'Meet Tanishka Gupta — making science fun and computers easy for curious little minds. Brings fresh energy and modern teaching methods.'
   },
   {
-    name: 'Ms. Kavitha Rao',
-    designation: 'Teacher',
-    subject: 'Hindi',
-    photo: 'assets/images/faculty/kavitha-rao.jpg',
-    qualification: 'M.A (Hindi), B.Ed',
-    experience: '12 Years',
-    about: 'Fosters love for Indian literature and language heritage. Her storytelling sessions are a student favourite.'
+    name: 'Miss Akansha Bhatt',
+    designation: 'PRT',
+    subject: '',
+    photo: '',
+    qualification: 'BTC, B.Ed',
+    experience: '1 Year',
+    about: ''
   },
   {
-    name: 'Mr. Arun Kumar',
-    designation: 'Teacher',
-    subject: 'Social Science',
-    photo: 'assets/images/faculty/arun-kumar.jpg',
-    qualification: 'M.A (History), B.Ed',
-    experience: '14 Years',
-    about: 'Brings history and geography alive through storytelling and maps. Organises annual educational tours for students.'
+    name: 'Mrs. Kawaljit Kaur',
+    designation: 'PRT',
+    subject: 'English',
+    photo: '',
+    qualification: 'B.A, B.Ed',
+    experience: '8 Years',
+    about: ''
+  },
+  {
+    name: 'Miss Qudshiya Hasan',
+    designation: 'PRT',
+    subject: 'Maths',
+    photo: '',
+    qualification: 'BBA, B.Ed',
+    experience: '2 Years',
+    about: ''
+  },
+  {
+    name: 'Mrs. Geeta Yadav',
+    designation: 'PRT',
+    subject: 'Early Childhood',
+    photo: '',
+    qualification: 'B.A, B.Ed',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Mrs. Shweta Gautam',
+    designation: 'PRT',
+    subject: '',
+    photo: 'Faculty/Shweta Gautam.jpeg',
+    qualification: 'M.Sc (Biotech), M.Ed',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Mrs. Seema Singh',
+    designation: 'PRT',
+    subject: 'Hindi',
+    photo: '',
+    qualification: 'M.A, B.Ed',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Mrs. Pratibha Rai',
+    designation: 'PRT',
+    subject: 'Hindi',
+    photo: '',
+    qualification: 'M.A, B.Ed',
+    experience: '10 Years',
+    about: ''
+  },
+  {
+    name: 'Mr. Vinay Singh',
+    designation: 'PRT',
+    subject: 'Computer',
+    photo: 'Faculty/Vinay Singh.jpeg',
+    qualification: 'M.Ed',
+    experience: '1 Month',
+    about: ''
+  },
+  {
+    name: 'Mr. Shantanu Singh',
+    designation: 'PET',
+    subject: 'Physical Education',
+    photo: 'Faculty/Shantanu Singh.jpeg',
+    qualification: 'BPEd, BPEs',
+    experience: '1 Month',
+    about: ''
+  },
+  {
+    name: 'Mrs. Nirma Mahour',
+    designation: 'Librarian',
+    subject: 'Library',
+    photo: '',
+    qualification: 'Master of Library, B.Ed',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Miss Muzzamil Fatima',
+    designation: 'PRT',
+    subject: 'Science',
+    photo: '',
+    qualification: 'B.Sc, B.Ed',
+    experience: '4 Years',
+    about: ''
+  },
+  {
+    name: 'Miss Anamika Vishwakarma',
+    designation: 'PRT',
+    subject: 'Early Childhood',
+    photo: 'Faculty/Anamika Vishwakarma.jpeg',
+    qualification: 'PG, D.El.Ed',
+    experience: '15 Years',
+    about: '.'
   },
   {
     name: 'Mr. Aman Gaur',
     designation: 'Dance Teacher',
     subject: 'Performing Arts',
-    photo: 'assets/images/faculty/aman-gaur.jpg',
-    qualification: 'ITI (Diploma)',
-    experience: '1 Year',
+    photo: 'Faculty/Aman Gaur.jpeg',
+    qualification: 'ITI (Diploma), B.Ed',
+    experience: '11 Months',
     about: 'Meet Aman Gaur — teaching little feet to dance, one happy step at a time. Choreographed the school\'s award-winning Annual Day performance.'
   },
   {
     name: 'Miss Unnati Gupta',
     designation: 'PRT',
     subject: 'Early Childhood',
-    photo: 'assets/images/faculty/unnati-gupta.jpg',
+    photo: 'Faculty/Unnati Gupta.png',
     qualification: 'Bachelors of Performing Arts',
     experience: '8 Months',
     about: 'Meet Unnati Gupta — turning tiny tears into giggles and ABCs into daily adventures. Specialises in early childhood development and play-based learning.'
+  },
+  {
+    name: 'Miss Roopanshi Singh',
+    designation: 'PRT',
+    subject: 'Social Science',
+    photo: 'Faculty/Roopanshi Singh.jpeg',
+    qualification: 'M.Com, B.Ed',
+    experience: '4 Years',
+    about: ''
+  },
+  {
+    name: 'Miss Neetu Yadav',
+    designation: 'PRT',
+    subject: 'Maths',
+    photo: 'Faculty/Neetu Yadav.jpeg',
+    qualification: 'M.A, B.Ed, D.El.Ed',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Miss Radhana Kushwaha',
+    designation: 'Drawing Teacher',
+    subject: 'Drawing',
+    photo: '',
+    qualification: 'B.A, B.Ed',
+    experience: '1 Month',
+    about: ''
+  },
+  {
+    name: 'Mrs. Poonam Khare',
+    designation: 'Office Staff',
+    subject: 'Administration',
+    photo: 'Faculty/Poonam Khare.jpeg',
+    qualification: 'M.A, B.Ed',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Mr. Deepak Kumar Singh',
+    designation: 'Office Staff',
+    subject: 'Administration',
+    photo: 'Faculty/',
+    qualification: 'MBA B.Ed',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Mr. Saumil Hitaishyi',
+    designation: 'Office Staff',
+    subject: 'Administration',
+    photo: 'Faculty/',
+    qualification: 'M.A, B.Ed',
+    experience: '',
+    about: ''
+  },
+  {
+    name: 'Mr. Dharmendra',
+    designation: 'Office Staff',
+    subject: 'Administration',
+    photo: 'Faculty/',
+    qualification: ' B.Ed',
+    experience: '',
+    about: ''
   },
 ];
 

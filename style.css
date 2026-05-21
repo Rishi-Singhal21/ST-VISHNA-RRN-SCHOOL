@@ -1757,12 +1757,7 @@ body.dark .vm-card { background: rgba(249,115,22,.1); }
    SUPPLEMENTAL — Event card hover, gallery fix, misc polish
    ================================================================ */
 
-/* Ensure gallery grid on index loads cleanly */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
-}
+/* removed */
 
 /* Notices layout responsive fix */
 @media (max-width: 900px) {
@@ -1805,26 +1800,10 @@ body.dark .vm-card { background: rgba(249,115,22,.1); }
   .gallery-masonry { columns: 1; }
 }
 
-/* Smooth image loading fade-in */
-img { transition: opacity .4s ease; }
-img[loading="lazy"] { opacity: 0; }
-img.loaded, img:not([loading]) { opacity: 1; }
+/* Images display at full opacity — bg gradient serves as placeholder */
+img[loading="lazy"] { opacity: 1; }
 
-/* ── IMAGE LOADING SHIMMER ───────────────────────────────────── */
-.about-img.img-loading {
-  background: linear-gradient(
-    90deg,
-    var(--gray-100) 25%,
-    var(--gray-200) 50%,
-    var(--gray-100) 75%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-}
-@keyframes shimmer {
-  0%   { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
+/* removed */
 
 /* ================================================================
    IMAGE PLACEHOLDER & FALLBACK STYLES
@@ -1860,10 +1839,7 @@ img.loaded, img:not([loading]) { opacity: 1; }
   background: linear-gradient(135deg, var(--light-orange), var(--gray-200));
 }
 
-/* General: all images get a soft background while loading */
-img {
-  background-color: var(--gray-100);
-}
+/* removed */
 
 /* ================================================================
    FACULTY PHOTO WRAP — placeholder shown until real image loads
@@ -1936,40 +1912,26 @@ img {
    GALLERY & EVENT IMAGE PLACEHOLDERS
    ================================================================ */
 
-/* Gallery item base — gradient bg visible until image loads */
+/* Grey gradient shows as background while image loads */
 .gallery-item,
 .gal-item {
-  background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
+  background: linear-gradient(135deg, #e8edf2, #dde3ea);
 }
 
-/* Gallery images — invisible until loaded */
+/* Images always fully visible — no opacity tricks */
 .gallery-item img,
 .gal-item img,
-.gal-img {
-  opacity: 0;
-  transition: opacity .4s ease;
+.gal-img,
+.ev-img,
+.event-img {
+  opacity: 1 !important;
+  display: block;
   position: relative;
   z-index: 1;
 }
-.gallery-item img.img-loaded,
-.gal-item img.img-loaded,
-.gal-img.img-loaded {
-  opacity: 1;
-}
 
-/* Event image wrapper placeholder */
+/* Event image wrapper placeholder bg */
 .ev-img-wrap,
 .event-img-wrap {
-  background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
-}
-
-/* Event images — invisible until loaded */
-.ev-img,
-.event-img {
-  opacity: 0;
-  transition: opacity .4s ease;
-}
-.ev-img.img-loaded,
-.event-img.img-loaded {
-  opacity: 1;
+  background: linear-gradient(135deg, #e8edf2, #dde3ea);
 }
