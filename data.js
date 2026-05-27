@@ -46,8 +46,8 @@ const FACULTY = [
   {
     name: 'Mr. Anmol Shukla',
     designation: 'PGT',
-    subject: 'Political Science',
-    photo: '',
+    subject: 'Maths',
+    photo: 'Faculty/Anmol Shukla.jpeg',
     qualification: 'M.Sc (Maths), B.Ed',
     experience: '7 Year',
     about: ''
@@ -128,9 +128,9 @@ const FACULTY = [
     name: 'Mr. Santosh Prajapati',
     designation: 'PGT',
     subject: 'Chemistry',
-    photo: '',
-    qualification: ' B.Ed',
-    experience: '',
+    photo: 'Faculty/Santosh Prajapati.jpeg',
+    qualification: 'M.Sc, B.Ed',
+    experience: '3 Years',
     about: ''
   },
   {
@@ -164,9 +164,9 @@ const FACULTY = [
     name: 'Mrs. Ankur Singh',
     designation: 'TGT',
     subject: 'Hindi',
-    photo: '',
+    photo: 'faculty/Ankur Singh.jpeg',
     qualification: 'M.A, B.Ed',
-    experience: '',
+    experience: '12 Years',
     about: ''
   },
   {
@@ -209,7 +209,7 @@ const FACULTY = [
     name: 'Mr. Anil Kumar Singh',
     designation: 'TGT',
     subject: 'Maths',
-    photo: 'Faculty/',
+    photo: 'Faculty/Anil Singh.jpeg',
     qualification: 'B.Ed',
     experience: '10 Years',
     about: ''
@@ -236,7 +236,7 @@ const FACULTY = [
     name: 'Miss Pooja',
     designation: 'TGT',
     subject: 'Hindi',
-    photo: 'Faculty/',
+    photo: 'Faculty/Pooja.jpeg',
     qualification: 'M.A, B.Ed',
     experience: '3 Years',
     about: ''
@@ -290,16 +290,16 @@ const FACULTY = [
     name: 'Mrs. Kawaljit Kaur',
     designation: 'PRT',
     subject: 'English',
-    photo: '',
+    photo: 'Faculty/Kawaljit Kaur.jpeg',
     qualification: 'B.A, B.Ed',
-    experience: '8 Years',
+    experience: '10 Years',
     about: ''
   },
   {
     name: 'Miss Qudshiya Hasan',
     designation: 'PRT',
     subject: 'Maths',
-    photo: '',
+    photo: 'Faculty/Qudshiya Hasan.jpeg',
     qualification: 'BBA, B.Ed',
     experience: '2 Years',
     about: ''
@@ -308,9 +308,9 @@ const FACULTY = [
     name: 'Mrs. Geeta Yadav',
     designation: 'PRT',
     subject: 'Early Childhood',
-    photo: '',
+    photo: 'Faculty/Geeta Yadav.jpeg',
     qualification: 'B.A, B.Ed',
-    experience: '',
+    experience: '18 Years',
     about: ''
   },
   {
@@ -425,7 +425,7 @@ const FACULTY = [
     name: 'Miss Radhna Kushwaha',
     designation: 'Art Teacher',
     subject: 'Art',
-    photo: '',
+    photo: 'Faculty/Radhna Kushwaha.jpeg',
     qualification: 'B.A, B.Ed',
     experience: '1 Month',
     about: ''
@@ -452,9 +452,9 @@ const FACULTY = [
     name: 'Mr. Saumil Hitaishyi',
     designation: 'Office Staff',
     subject: 'Administration',
-    photo: 'Faculty/',
+    photo: 'Faculty/Saumil Hitaishy.jpeg',
     qualification: 'M.A, B.Ed',
-    experience: '',
+    experience: '2 Years',
     about: ''
   },
   {
