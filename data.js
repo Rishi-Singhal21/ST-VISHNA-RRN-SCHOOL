@@ -65,9 +65,9 @@ const FACULTY = [
     name: 'Mr. Rajeev Kumar Mishra',
     designation: 'PGT',
     subject: 'English',
-    photo: 'Faculty/',
+    photo: 'Faculty/Rajeev Mishra.jpeg',
     qualification: 'M.A, LT(B.Ed)',
-    experience: '',
+    experience: '4 Years',
     about: ''
   },
   {
@@ -470,11 +470,11 @@ const FACULTY = [
 
 /* ── TOPPERS DATA ─────────────────────────────────────────────── */
 const TOPPERS = [
-  { name: 'Aarav Sharma',  percent: '98.6%', class: 'Class XII (Science)',  year: '2024', photo: 'assets/images/toppers/aarav-sharma.jpg',   rank: 1 },
-  { name: 'Riya Patel',    percent: '97.8%', class: 'Class XII (Commerce)', year: '2024', photo: 'assets/images/toppers/riya-patel.jpg',  rank: 2 },
-  { name: 'Ansh Verma',    percent: '97.2%', class: 'Class X',              year: '2024', photo: 'assets/images/toppers/ansh-verma.jpg',    rank: 3 },
-  { name: 'Sana Khan',     percent: '96.8%', class: 'Class XII (Science)',  year: '2023', photo: 'assets/images/toppers/sana-khan.jpg',  rank: 4 },
-  { name: 'Vikram Joshi',  percent: '96.4%', class: 'Class X',              year: '2023', photo: 'assets/images/toppers/vikram-joshi.jpg',    rank: 5 },
+  { name: 'Joyna Singh',  percent: '97.0%', class: 'Class XII',  year: '2026', photo: 'assets/images/toppers/aarav-sharma.jpg',   rank: 1 },
+  { name: 'Amishi Mishra',    percent: '95.0%', class: 'Class XII', year: '2026', photo: 'assets/images/toppers/riya-patel.jpg',  rank: 2 },
+  { name: 'Shambhavi Singh',    percent: '93.4%', class: 'Class XII',              year: '2026', photo: 'assets/images/toppers/ansh-verma.jpg',    rank: 3 },
+  { name: 'Aditya Ghosh',     percent: '93.2%', class: 'Class XII ',  year: '2026', photo: 'assets/images/toppers/sana-khan.jpg',  rank: 4 },
+  { name: 'Shaurya Singh',  percent: '92.2%', class: 'Class XII',              year: '2026', photo: 'assets/images/toppers/vikram-joshi.jpg',    rank: 5 },
   { name: 'Prisha Nair',   percent: '95.9%', class: 'Class XII (Commerce)', year: '2023', photo: 'assets/images/toppers/prisha-nair.jpg', rank: 6 },
 ];
 
