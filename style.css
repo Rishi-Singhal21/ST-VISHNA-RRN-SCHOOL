@@ -398,7 +398,7 @@ input, textarea, select { font-family: inherit; }
 }
 .ticker-track {
   display: flex;
-  animation: ticker-scroll 30s linear infinite;
+  animation: ticker-scroll 20s linear infinite;
   white-space: nowrap;
   gap: 40px;
 }
