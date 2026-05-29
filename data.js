@@ -470,48 +470,48 @@ const FACULTY = [
 
 /* ── TOPPERS DATA ─────────────────────────────────────────────── */
 const TOPPERS = [
-  { name: 'Joyna Singh',  percent: '97.0%', class: 'Class XII',  year: '2026', photo: 'assets/images/toppers/aarav-sharma.jpg',   rank: 1 },
+  { name: 'Joyna Singh',  percent: '97.0%', class: 'Class XII',  year: '2026', photo: 'Toppers/Joyna Singh.jpeg',   rank: 1 },
   { name: 'Amishi Mishra',    percent: '95.0%', class: 'Class XII', year: '2026', photo: 'assets/images/toppers/riya-patel.jpg',  rank: 2 },
   { name: 'Shambhavi Singh',    percent: '93.4%', class: 'Class XII',              year: '2026', photo: 'assets/images/toppers/ansh-verma.jpg',    rank: 3 },
   { name: 'Aditya Ghosh',     percent: '93.2%', class: 'Class XII ',  year: '2026', photo: 'assets/images/toppers/sana-khan.jpg',  rank: 4 },
   { name: 'Shaurya Singh',  percent: '92.2%', class: 'Class XII',              year: '2026', photo: 'assets/images/toppers/vikram-joshi.jpg',    rank: 5 },
-  { name: 'Prisha Nair',   percent: '95.9%', class: 'Class XII (Commerce)', year: '2023', photo: 'assets/images/toppers/prisha-nair.jpg', rank: 6 },
+  { name: 'Prisha Nair',   percent: '90.9%', class: 'Class XII', year: '2026', photo: 'assets/images/toppers/prisha-nair.jpg', rank: 6 },
 ];
 
 /* ── NOTICES DATA ─────────────────────────────────────────────── */
 const NOTICES = [
   {
-    title: 'Admission Open for Session 2025–26',
-    body: 'Registrations are now open for all classes from Nursery to Class XI. Visit the office or call 9876543210 for details.',
-    date: '15 April 2025',
+    title: 'Admission Open for Session 2026–27',
+    body: 'Registrations are now open for all classes from Nursery to Class XI. Visit the office or call 9307961748 for details.',
+    date: '15 January 2026',
     type: 'urgent',
     tag: 'Admissions'
   },
   {
-    title: 'Half-Yearly Examination Schedule',
-    body: 'Half-yearly exams for classes VI–XII will commence from 10 October 2025. Time-tables have been distributed. Students are advised to prepare accordingly.',
-    date: '02 April 2025',
+    title: 'Periodic Examination 1',
+    body: 'Periodic examination 1 for classes I–IX will commence from 03 may 2026. Time-tables have been distributed. Students are advised to prepare accordingly.',
+    date: '25 April 2026',
     type: 'important',
     tag: 'Exams'
   },
   {
-    title: 'Annual Sports Day – 25 November 2025',
-    body: 'All students are invited to participate in the Annual Sports Day. Registration forms available with respective class teachers.',
-    date: '28 March 2025',
+    title: 'Mother\'s Day Celebration',
+    body: 'Students from class Nur-UKG are invited for the Mother\'s Day celebration. Students must come along with their mother only.',
+    date: '08 May 2026',
     type: 'normal',
     tag: 'Events'
   },
+  // {
+  //   title: 'National Science Olympiad 2025',
+  //   body: 'ST VISHNA RRN SCHOOL is participating in NSO 2025. Interested students (Class IV–XII) may register before 30 April 2025.',
+  //   date: '20 March 2025',
+  //   type: 'normal',
+  //   tag: 'Academic'
+  // },
   {
-    title: 'National Science Olympiad 2025',
-    body: 'ST VISHNA RRN SCHOOL is participating in NSO 2025. Interested students (Class IV–XII) may register before 30 April 2025.',
-    date: '20 March 2025',
-    type: 'normal',
-    tag: 'Academic'
-  },
-  {
-    title: 'Parent–Teacher Meeting – 25 September 2025',
-    body: 'PTM for classes I–X scheduled on 25 Sept (9 AM – 1 PM). Attendance of parents is compulsory. Report cards will be distributed.',
-    date: '15 March 2025',
+    title: 'Parent–Teacher Meeting – 15 May 2026',
+    body: 'PTM for classes I–IX & XII scheduled on 15 May (8:30 AM – 12 PM). Attendance of parents is compulsory. Answer sheets will be shown to the parents.',
+    date: '11 May 2026',
     type: 'important',
     tag: 'PTM'
   },
@@ -521,92 +521,150 @@ const NOTICES = [
 const EVENTS = [
   {
     id: 1,
-    title: 'Annual Sports Day 2025',
-    date: '25 November 2025',
-    time: '8:00 AM – 4:00 PM',
-    category: 'Sports',
-    image: 'Faculty/Indar Mandhyan.jpeg',
-    shortDesc: 'A grand celebration of athletic talent with track events, team games, and prize distribution.',
-    fullDesc: 'The Annual Sports Day is one of the most anticipated events of the school calendar. Students from all classes participate in a variety of athletic events including 100m sprint, relay races, long jump, shot put, and team sports. The event concludes with a prize distribution ceremony attended by distinguished guests.',
-    organizer: 'Physical Education Department',
-    venue: 'School Sports Ground'
+    title: 'Mother\'s Day Celebration',
+    date: '08 May 2026',
+    time: '10:00 AM – 12:00 PM',
+    category: 'events',
+    image: 'Events/Mothers Day/poster.jpeg',
+    shortDesc: 'A joyful Mother’s Day celebration with fun activities, snacks, and awards for mothers.',
+    fullDesc: 'The Mother’s Day celebration was organized by the PRT teachers to make mothers feel happy and special. The event included different fun activities, games, snacks, and award distribution. Mothers enjoyed participating in the activities with great excitement. The program created a cheerful and memorable atmosphere for everyone present.',
+    organizer: 'PRT Teachers',
+    venue: 'Assembly Hall'
   },
   {
     id: 2,
-    title: 'Science Exhibition 2025',
-    date: '18 October 2025',
-    time: '10:00 AM – 3:00 PM',
+    title: 'Jal Pakhwada',
+    date: '18 April 2026',
+    time: '7:30 AM - 12:00 PM',
     category: 'Academic',
-    image: 'assets/images/gallery/science-lab.jpg',
-    shortDesc: 'Students showcase innovative science projects and working models to judges and parents.',
-    fullDesc: 'The annual Science Exhibition invites students from Class VI to XII to design and present innovative science projects. Topics range from renewable energy models to environmental science experiments. Expert judges evaluate projects on creativity, scientific accuracy, and presentation skills. Top projects are sent to district-level competitions.',
-    organizer: 'Science Department',
-    venue: 'School Hall & Science Labs'
+    image: 'Events/Jal Pakhwada/1A1.jpeg',
+    shortDesc: 'Jal Pakhwada was celebrated to spread awareness about saving water and protecting nature.',
+    fullDesc: 'The Jal Pakhwada event was organized to teach students about the importance of water and natural resources on Earth. Students participated by making posters and giving presentations on water conservation and environmental protection. The event helped students understand the value of saving water and keeping the Earth safe for the future.',
+    organizer: 'Social Studies Teachers',
+    venue: 'School Campus'
   },
   {
     id: 3,
-    title: 'Annual Day & Cultural Festival',
-    date: '15 November 2025',
-    time: '5:00 PM – 9:00 PM',
+    title: 'Annual Function',
+    date: '24 & 25 February 2026',
+    time: '5:00 PM – 8:00 PM',
     category: 'Cultural',
-    image: 'assets/images/gallery/annual-day.jpg',
-    shortDesc: 'An evening of music, dance, drama, and award presentations celebrating student talent.',
-    fullDesc: 'Annual Day is the flagship cultural event of ST VISHNA RRN SCHOOL. The evening features spectacular dance performances, nukkad nataks, musical recitals, and a grand drama production directed by students. Awards are presented to toppers, best athletes, and outstanding contributors to school activities.',
-    organizer: 'Cultural Committee',
-    venue: 'School Auditorium'
+    image: 'Events/AnnualFunction/Padmavat2.jpeg',
+    shortDesc: 'The Annual Function celebrated culture, talent, social awareness, and student achievements through performances and awards.',
+    fullDesc: 'The Annual Function was celebrated with great excitement and joy. Students from different classes performed dances, acts, and cultural programs based on Lavani, puppet dance, Rajasthani folk, classical music, pop, disco, and many more themes. Some performances also highlighted social issues like dowry, the Aravali Hills case, and phone addiction. The event also included award distribution for winning houses, outstanding students, and sports achievements.',
+    organizer: 'School Faculty',
+    venue: 'Assembly Hall'
   },
-  {
-    id: 4,
-    title: 'Parent–Teacher Meeting',
-    date: '25 September 2025',
-    time: '9:00 AM – 1:00 PM',
-    category: 'Academic',
-    image: 'assets/images/gallery/classroom.jpg',
-    shortDesc: 'Half-yearly report cards distributed. Parents meet teachers for academic progress discussion.',
-    fullDesc: 'The half-yearly PTM is a crucial event where parents meet class teachers and subject teachers to discuss academic progress, behaviour, and areas of improvement. Report cards for the first half of the academic year are distributed. The Principal also addresses parents regarding upcoming academic goals.',
-    organizer: 'School Administration',
-    venue: 'Respective Classrooms'
-  },
-  {
-    id: 5,
-    title: 'National Science Olympiad',
-    date: '10 November 2025',
-    time: '9:00 AM – 12:00 PM',
-    category: 'Academic',
-    image: 'assets/images/gallery/science-fair.jpg',
-    shortDesc: 'School-level NSO test for students of Classes IV–XII. Top scorers represent school at district level.',
-    fullDesc: 'The National Science Olympiad is a prestigious national-level exam that tests students on concepts beyond the regular syllabus. Our school consistently produces district and state level toppers. Participation is open to students of Classes IV–XII. Preparatory classes are conducted by the Science Department every Saturday.',
-    organizer: 'Science Foundation of India',
-    venue: 'School Classrooms'
-  },
-  {
-    id: 6,
-    title: 'Yoga & Wellness Day',
-    date: '21 June 2025',
-    time: '7:00 AM – 9:00 AM',
-    category: 'Health',
-    image: 'assets/images/gallery/yoga-day.jpg',
-    shortDesc: 'Celebrating International Yoga Day with guided yoga sessions for students, teachers, and parents.',
-    fullDesc: 'On the occasion of International Yoga Day, the school organises a special morning session of guided yoga and meditation for the entire school community — students, teachers, and parents are all invited. A certified yoga instructor leads the session. The event emphasises the importance of physical and mental well-being.',
-    organizer: 'Wellness Committee',
-    venue: 'School Ground'
-  },
+  // {
+  //   id: 4,
+  //   title: 'Parent–Teacher Meeting',
+  //   date: '25 September 2025',
+  //   time: '9:00 AM – 1:00 PM',
+  //   category: 'Academic',
+  //   image: 'assets/images/gallery/classroom.jpg',
+  //   shortDesc: 'Half-yearly report cards distributed. Parents meet teachers for academic progress discussion.',
+  //   fullDesc: 'The half-yearly PTM is a crucial event where parents meet class teachers and subject teachers to discuss academic progress, behaviour, and areas of improvement. Report cards for the first half of the academic year are distributed. The Principal also addresses parents regarding upcoming academic goals.',
+  //   organizer: 'School Administration',
+  //   venue: 'Respective Classrooms'
+  // },
+  // {
+  //   id: 5,
+  //   title: 'National Science Olympiad',
+  //   date: '10 November 2025',
+  //   time: '9:00 AM – 12:00 PM',
+  //   category: 'Academic',
+  //   image: 'assets/images/gallery/science-fair.jpg',
+  //   shortDesc: 'School-level NSO test for students of Classes IV–XII. Top scorers represent school at district level.',
+  //   fullDesc: 'The National Science Olympiad is a prestigious national-level exam that tests students on concepts beyond the regular syllabus. Our school consistently produces district and state level toppers. Participation is open to students of Classes IV–XII. Preparatory classes are conducted by the Science Department every Saturday.',
+  //   organizer: 'Science Foundation of India',
+  //   venue: 'School Classrooms'
+  // },
+  // {
+  //   id: 6,
+  //   title: 'Yoga & Wellness Day',
+  //   date: '21 June 2025',
+  //   time: '7:00 AM – 9:00 AM',
+  //   category: 'Health',
+  //   image: 'assets/images/gallery/yoga-day.jpg',
+  //   shortDesc: 'Celebrating International Yoga Day with guided yoga sessions for students, teachers, and parents.',
+  //   fullDesc: 'On the occasion of International Yoga Day, the school organises a special morning session of guided yoga and meditation for the entire school community — students, teachers, and parents are all invited. A certified yoga instructor leads the session. The event emphasises the importance of physical and mental well-being.',
+  //   organizer: 'Wellness Committee',
+  //   venue: 'School Ground'
+  // },
 ];
 
 /* ── GALLERY DATA ─────────────────────────────────────────────── */
 const GALLERY_ITEMS = [
-  { src: 'Faculty/Indar Mandhyan.jpeg', label: 'Campus', category: 'campus', caption: 'Our beautiful main campus building' },
-  { src: 'assets/images/gallery/library.jpg', label: 'Library', category: 'campus', caption: 'Modern library with 10,000+ books' },
-  { src: 'assets/images/gallery/science-lab.jpg', label: 'Science Lab', category: 'academics', caption: 'State-of-the-art science laboratories' },
-  { src: 'assets/images/gallery/sports-day.jpg', label: 'Sports', category: 'sports', caption: 'Annual Sports Day celebrations' },
-  { src: 'assets/images/gallery/art-room.jpg', label: 'Art Room', category: 'activities', caption: 'Creative arts and craft sessions' },
-  { src: 'assets/images/gallery/annual-day.jpg', label: 'Annual Day', category: 'events', caption: 'Annual Day cultural performance' },
-  { src: 'assets/images/gallery/computer-lab.jpg', label: 'Computer Lab', category: 'academics', caption: 'Modern computer laboratory' },
-  { src: 'assets/images/gallery/yoga-day.jpg', label: 'Yoga Day', category: 'events', caption: 'International Yoga Day celebration' },
-  { src: 'assets/images/gallery/classroom.jpg', label: 'Academics', category: 'academics', caption: 'Engaging classroom sessions' },
-  { src: 'assets/images/gallery/science-fair.jpg', label: 'Science Fair', category: 'events', caption: 'Science exhibition 2024' },
-  { src: 'assets/images/gallery/smart-class.jpg', label: 'Classroom', category: 'academics', caption: 'Smart classroom technology' },
-  { src: 'assets/images/gallery/playground.jpg', label: 'Playground', category: 'sports', caption: 'Spacious playground and sports facilities' },
+  { src: 'Assets/campus.jpeg', label: 'Campus', category: 'campus', caption: 'Our beautiful main campus building' },
+  { src: 'Events/Special Workshops/img2.jpeg', label: 'workshop', category: 'activities', caption: '' },
+  { src: 'Events/Special Workshops/img4.jpeg', label: 'workshop', category: 'activities', caption: '' },
+  { src: 'Events/Jal Pakhwada/1A1.jpeg', label: 'Jal Pakhwada', category: 'academics', caption: '' },
+  { src: 'Events/Diwali/img4.jpeg', label: 'Diwali', category: 'activities', caption: '' },
+  { src: 'Events/Articles/Article1.jpeg', label: 'Article', category: 'activities', caption: '' },
+  { src: 'Events/Special Workshops/img1.jpeg', label: 'workshop', category: 'activities', caption: '' },
+  { src: 'Events/Lab/img10.jpeg', label: 'Science Lab', category: 'academics', caption: '' },
+  { src: 'Events/Lab/img18.jpeg', label: 'Science Lab', category: 'academics', caption: '' },
+  { src: 'Events/Lab/img3.jpeg', label: 'Science Lab', category: 'academics', caption: '' },
+  { src: 'Events/Lab/img6.jpeg', label: 'Computer Lab', category: 'campus', caption: '' },
+  { src: 'Events/Lab/img5.jpeg', label: 'Science Lab', category: 'campus', caption: '' },
+  { src: 'Events/Enviornment/img2.jpeg', label: 'enviornment', category: 'activities', caption: '' },
+  { src: 'Events/Enviornment/img11.jpeg', label: 'enviornment', category: 'activities', caption: '' },
+  { src: 'Events/Prerna Diwas/img2.jpeg', label: 'Prerna Diwas', category: 'events', caption: '' },
+  { src: 'Events/Enviornment/img23.jpeg', label: 'enviornment', category: 'activities', caption: '' },
+  { src: 'Events/Sports/img2.jpeg', label: 'Sports', category: 'sports', caption: 'Taekwondo Team' },
+  { src: 'Events/Enviornment/img26.jpeg', label: 'enviornment', category: 'activities', caption: '' },
+  { src: 'Events/Sports/img7.jpeg', label: 'Sports', category: 'sports', caption: 'Taekwondo Match' },
+  { src: 'Events/Enviornment/img7.jpeg', label: 'enviornment', category: 'activities', caption: '' },
+  { src: 'Events/Enviornment/img22.jpeg', label: 'enviornment', category: 'activities', caption: '' },
+  { src: 'Events/Sports/Trophy.jpeg', label: 'Sports', category: 'sports', caption: 'St Vishna Team with Trophy' },
+  { src: 'Events/Enviornment/img13.jpeg', label: 'enviornment', category: 'activities', caption: '' },
+  { src: 'Events/Enviornment/IMG-20260501-WA0024.jpg.jpeg', label: 'enviornment', category: 'activities', caption: '' },
+  { src: 'Events/Diwali/img2.jpeg', label: 'Diwali', category: 'activities', caption: '' },
+  { src: 'Events/Sports/Tagore Badminton.jpeg', label: 'Sports', category: 'sports', caption: 'Tagore House' },
+  { src: 'Events/Farewell/img2.jpeg', label: 'Farewell', category: 'events', caption: 'Farewell 2025' },
+  { src: 'Events/Sports/img6.jpeg', label: 'Sports', category: 'sports', caption: '' },
+  { src: 'Events/Sports/Ashoka.jpeg', label: 'Sports', category: 'sports', caption: 'Ashoka House' },
+  { src: 'Events/Sports/raman.jpeg', label: 'Sports', category: 'sports', caption: 'Raman House' },
+  { src: 'Events/Farewell/img4.jpeg', label: 'Farewell', category: 'events', caption: 'Farewell 2025' },
+  { src: 'Events/Jal Pakhwada/19.jpeg', label: 'Jal Pakhwada', category: 'academics', caption: '' },
+  { src: 'Events/Sports/img1.jpeg', label: 'Sports', category: 'sports', caption: '' },
+  { src: 'Events/Sports/Annual Sports Meet.jpeg', label: 'Sports', category: 'sports', caption: 'Annual Sports Meet' },
+  { src: 'Events/Sports/Shivaji.jpeg', label: 'Sports', category: 'sports', caption: 'Shivaji House' },
+  { src: 'Events/Farewell/img1.jpeg', label: 'Farewell', category: 'events', caption: 'Farewell 2025' },
+  { src: 'Events/Trips/img4.jpeg', label: 'Trips', category: 'activities', caption: 'Lucknow Trip' },
+  { src: 'Events/Trips/img5.jpeg', label: 'Trips', category: 'activities', caption: 'Lucknow Trip' },
+  { src: 'Events/Trips/img3.jpeg', label: 'Trips', category: 'activities', caption: 'Mangarh Trip' },
+  { src: 'Events/Republic and Independence Day/img7.jpeg', label: 'Independence Day 2025', category: 'events', caption: '' },
+  { src: 'Events/Mothers Day/img3.jpeg', label: 'Mothers Day', category: 'events', caption: 'Mother\'s Day Celebration 2026' },
+  { src: 'Events/AnnualFunction/5A2.jpeg', label: 'Annual Function', category: 'events', caption: 'Annual Function Dance Performance of class 5A2 2025' },
+  { src: 'Events/Jal Pakhwada/11.jpeg', label: 'Jal Pakhwada', category: 'academics', caption: '' },
+  { src: 'Events/AnnualFunction/butterfly.jpeg', label: 'Annual function', category: 'events', caption: 'Padmavat Dance & Act' },
+  { src: 'Events/AnnualFunction/Lawani.jpeg', label: 'Annual function', category: 'events', caption: 'Annual Function Dance Performance of class 6A3 2025' },
+  { src: 'Events/Jal Pakhwada/20.jpeg', label: 'Jal Pakhwada', category: 'academics', caption: '' },
+  { src: 'Events/Republic and Independence Day/img11.jpeg', label: 'Independence Day 2025', category: 'events', caption: '' },
+  { src: 'Events/Mothers Day/img2.jpeg', label: 'Mothers Day', category: 'events', caption: 'Mother\'s Day Celebration 2026' },
+  { src: 'Events/Jal Pakhwada/21.jpeg', label: 'Jal Pakhwada', category: 'academics', caption: '' },
+  { src: 'Events/AnnualFunction/Puppet.jpeg', label: 'Annual function', category: 'events', caption: 'Puppet Dance' },
+  { src: 'Events/Republic and Independence Day/img10.jpeg', label: 'Independence Day 2025', category: 'events', caption: '' },
+  { src: 'Events/Teachers day/img2.jpeg', label: 'Teachers day', category: 'events', caption: 'Teacher\'s Day' },
+  { src: 'Events/Jal Pakhwada/18.jpeg', label: 'Jal Pakhwada', category: 'academics', caption: '' },
+  { src: 'Events/Republic and Independence Day/img3.jpeg', label: 'Independence Day 2025', category: 'events', caption: '' },
+  { src: 'Events/Prerna Diwas/img4.jpeg', label: 'Prerna Diwas', category: 'events', caption: '' },
+  { src: 'Events/Republic and Independence Day/img14.jpeg', label: 'Independence Day 2025', category: 'events', caption: '' },
+  { src: 'Events/Jal Pakhwada/4.jpeg', label: 'Jal Pakhwada', category: 'academics', caption: '' },
+  { src: 'Events/AnnualFunction/Padmavat1.jpeg', label: 'Annual function', category: 'events', caption: 'Padmavat Dance & Act' },
+  { src: 'Events/Republic and Independence Day/img1.jpeg', label: 'Republic Day 2025', category: 'events', caption: '' },
+  { src: 'Events/AnnualFunction/Padmavat3.jpeg', label: 'Annual function', category: 'events', caption: 'Padmavat Dance & Act Characters' },
+  { src: 'Events/Prerna Diwas/img1.jpeg', label: 'Prerna Diwas', category: 'events', caption: '' },
+  { src: 'Events/Jal Pakhwada/13.jpeg', label: 'Jal Pakhwada', category: 'academics', caption: '' },
+  { src: 'Events/Republic and Independence Day/img2.jpeg', label: 'Republic Day 2025', category: 'events', caption: '' },
+  { src: 'Events/Jal Pakhwada/6.jpeg', label: 'Jal Pakhwada', category: 'academics', caption: '' },
+  { src: 'Events/Republic and Independence Day/img8.jpeg', label: 'Independence Day 2025', category: 'events', caption: '' },
+  { src: 'Events/Republic and Independence Day/img4.jpeg', label: 'Independence Day 2025', category: 'events', caption: '' },
+  { src: 'Events/Jal Pakhwada/1.jpeg', label: 'Jal Pakhwada', category: 'academics', caption: '' },
+  { src: 'Events/Jal Pakhwada/2.jpeg', label: 'Jal Pakhwada', category: 'academics', caption: '' },
+  { src: 'Events/Jal Pakhwada/5.jpeg', label: 'Jal Pakhwada', category: 'academics', caption: '' },
+  { src: 'Events/Jal Pakhwada/9.jpeg', label: 'Jal Pakhwada', category: 'academics', caption: '' },
 ];
 
 /* ── TESTIMONIALS DATA ────────────────────────────────────────── */
@@ -635,7 +693,7 @@ const TESTIMONIALS = [
 const FAQS = [
   {
     question: 'What is the admission process for new students?',
-    answer: 'The admission process involves collecting the prospectus, submitting the application form with required documents, appearing for an entrance assessment (Class III onwards), and completing fee payment upon selection. Admissions are open from January to March each year.'
+    answer: 'The admission process involves collecting the application form, submitting the application form with required documents, appearing for an entrance assessment, and completing fee payment upon selection. Admissions are open from January each year.'
   },
   {
     question: 'Is the school affiliated to CBSE?',
@@ -643,19 +701,19 @@ const FAQS = [
   },
   {
     question: 'What streams are available in Senior Secondary (Class XI–XII)?',
-    answer: 'We offer Science (PCM & PCB), Commerce, and Humanities streams in Class XI–XII. Science students receive specialised coaching for JEE and NEET competitive examinations alongside the regular CBSE curriculum.'
+    answer: 'We offer Science (PCM & PCB), Commerce, and Arts streams in Class XI–XII. Science students receive specialised coaching for JEE and NEET competitive examinations alongside the regular CBSE curriculum.'
   },
   {
     question: 'Are there scholarships available for students?',
-    answer: 'Yes, we offer merit-based scholarships for students who secure 90%+ in board examinations. Need-based fee concessions are also available for economically weaker students. Contact the admissions office for details.'
+    answer: 'No, currently we not providing any scholarships.'
   },
   {
     question: 'What extracurricular activities does the school offer?',
-    answer: 'We offer a wide range of activities including dance, music, drama, fine arts, robotics, debate, yoga, various sports, and participation in national olympiads. Co-curricular development is a core part of our educational philosophy.'
+    answer: 'We offer a wide range of activities including dance, fine arts, robotics, debate, yoga, various sports, and participation in national olympiads. Co-curricular development is a core part of our educational philosophy.'
   },
   {
     question: 'What are the school timings?',
-    answer: 'School timings are Monday to Saturday, 7:30 AM to 2:00 PM for students. The administrative office is open from 9:00 AM to 4:30 PM. The library remains open till 5:00 PM.'
+    answer: 'School timings are Monday to Saturday, 7:30 AM to 12:30 PM for students. The administrative office is open from 8:00 AM to 2:00 PM.'
   },
 ];
 
