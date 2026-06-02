@@ -23,7 +23,7 @@ const FACULTY = [
     photo: 'Faculty/Indar Mandhyan.jpeg',
     qualification: 'M.Com, B.Ed',
     experience: '22 Years',
-    about: ''
+    about: 'Experienced administrator ensuring smooth operations, financial efficiency, and institutional development.'
   },
   {
     name: 'Mr. Shashank Srivastava',
@@ -31,8 +31,8 @@ const FACULTY = [
     subject: 'IT',
     photo: 'Faculty/Shashank Srivastava.jpeg',
     qualification: 'PGDCA, M.Sc (IT), B.Ed',
-    experience: '1 Year',
-    about: ''
+    experience: '20 Year',
+    about: 'Technology educator committed to preparing students for a digitally connected future.'
   },
   {
     name: 'Mrs. Shazia Khanam',
@@ -40,8 +40,8 @@ const FACULTY = [
     subject: 'English',
     photo: 'Faculty/Shazia Khanam.jpeg',
     qualification: 'BBA, B.Ed',
-    experience: '1 Year',
-    about: ''
+    experience: '10 Year',
+    about: 'Passionate English teacher fostering communication skills, confidence, and lifelong learning.'
   },
   {
     name: 'Mr. Anmol Shukla',
@@ -50,7 +50,7 @@ const FACULTY = [
     photo: 'Faculty/Anmol Shukla.jpeg',
     qualification: 'M.Sc (Maths), B.Ed',
     experience: '7 Year',
-    about: ''
+    about: 'Dedicated mathematics educator making complex concepts simple, logical, and engaging.'
   },
   {
     name: 'Mr. Mishul Verma',
@@ -59,7 +59,7 @@ const FACULTY = [
     photo: 'Faculty/Mishul Verma.jpeg',
     qualification: 'M.A, B.Ed',
     experience: '11 Years',
-    about: ''
+    about: 'Inspiring English teacher encouraging creativity, expression, and academic excellence.'
   },
   {
     name: 'Mr. Rajeev Kumar Mishra',
@@ -67,8 +67,8 @@ const FACULTY = [
     subject: 'English',
     photo: 'Faculty/Rajeev Mishra.jpeg',
     qualification: 'M.A, LT(B.Ed)',
-    experience: '4 Years',
-    about: ''
+    experience: '27 Years',
+    about: 'Veteran educator enriching language skills through experience and student-centered teaching.'
   },
   {
     name: 'Mrs. Sunita Patwa',
@@ -76,8 +76,8 @@ const FACULTY = [
     subject: 'Hindi',
     photo: 'Faculty/Sunita Patwa.jpeg',
     qualification: 'M.A, B.Ed',
-    experience: '18 Years',
-    about: ''
+    experience: '26 Years',
+    about: 'Committed Hindi educator promoting language proficiency and appreciation of literature.'
   },
   {
     name: 'Mr. Anvit Arora',
@@ -86,7 +86,7 @@ const FACULTY = [
     photo: 'Faculty/Anvit Arora.jpeg',
     qualification: 'M.Com, B.Ed',
     experience: '3 Years',
-    about: ''
+    about: 'Economics teacher connecting classroom learning with practical financial understanding.'
   },
   {
     name: 'Mr. Keshav Kumar Singh',
@@ -95,7 +95,7 @@ const FACULTY = [
     photo: 'Faculty/Keshav Singh.jpeg',
     qualification: 'M.Sc, B.Ed',
     experience: '',
-    about: ''
+    about: 'Mathematics mentor developing analytical thinking and problem-solving abilities.'
   },
   {
     name: 'Mrs. Shweta Singh',
@@ -113,7 +113,7 @@ const FACULTY = [
     photo: 'Faculty/Ashwani Shukla.jpeg',
     qualification: 'MCA, B.Ed',
     experience: '4 Years',
-    about: ''
+    about: 'Computer science teacher empowering students with modern technological skills.'
   },
   {
     name: 'Mr. Yash Bhatia',
@@ -121,8 +121,8 @@ const FACULTY = [
     subject: 'Physics',
     photo: 'Faculty/Yash Bhatia.jpeg',
     qualification: 'M.Sc, B.Ed',
-    experience: '1 Month',
-    about: ''
+    experience: '2 Year',
+    about: 'Physics educator making scientific principles accessible through practical understanding.'
   },
   {
     name: 'Mr. Santosh Prajapati',
@@ -131,7 +131,7 @@ const FACULTY = [
     photo: 'Faculty/Santosh Prajapati.jpeg',
     qualification: 'M.Sc, B.Ed',
     experience: '3 Years',
-    about: ''
+    about: 'Chemistry teacher encouraging scientific thinking through engaging classroom experiences.'
   },
   {
     name: 'Miss Suman Sharma',
@@ -140,7 +140,7 @@ const FACULTY = [
     photo: 'Faculty/Suman Sharma.jpeg',
     qualification: 'M.Com, B.Ed',
     experience: '10 Years',
-    about: ''
+    about: 'Social science educator fostering awareness of history, society, and citizenship.'
   },
   {
     name: 'Mr. Prathivesh Singh',
@@ -148,8 +148,8 @@ const FACULTY = [
     subject: 'Maths',
     photo: 'Faculty/Prathivesh Singh.jpeg',
     qualification: 'B.Sc, B.Ed, D.El.Ed',
-    experience: '4 Years',
-    about: ''
+    experience: '5 Years',
+    about: 'Dedicated mathematics teacher building confidence through conceptual understanding.'
   },
   {
     name: 'Mr. Himanshu Shukla',
@@ -157,8 +157,8 @@ const FACULTY = [
     subject: 'Science',
     photo: 'Faculty/Himanshu Shukla.jpeg',
     qualification: ' B.Ed',
-    experience: '2 Years',
-    about: ''
+    experience: '4 Years',
+    about: 'Science educator inspiring curiosity, exploration, and critical thinking.'
   },
   {
     name: 'Mrs. Ankur Singh',
@@ -166,8 +166,8 @@ const FACULTY = [
     subject: 'Hindi',
     photo: 'faculty/Ankur Singh.jpeg',
     qualification: 'M.A, B.Ed',
-    experience: '12 Years',
-    about: ''
+    experience: '13 Years',
+    about: 'Passionate Hindi teacher nurturing language skills and cultural appreciation.'
   },
   {
     name: 'Mr. Ramakant Tiwawi',
@@ -175,8 +175,8 @@ const FACULTY = [
     subject: 'English',
     photo: 'Faculty/Ramakant Tiwari.jpeg',
     qualification: 'M.A, B.Ed',
-    experience: '8 Years',
-    about: ''
+    experience: '20 Years',
+    about: 'Experienced English educator strengthening communication and literary understanding.'
   },
   {
     name: 'Mrs. Meena Singh',
@@ -185,7 +185,7 @@ const FACULTY = [
     photo: 'Faculty/Meena Singh.jpeg',
     qualification: 'B.Ed',
     experience: '25 Years',
-    about: ''
+    about: 'Dedicated Hindi teacher guiding students toward effective language mastery.'
   },
   {
     name: 'Mr. Ankit Kumar Yadav',
@@ -194,7 +194,7 @@ const FACULTY = [
     photo: 'Faculty/Ankit Yadav.jpeg',
     qualification: 'M.Com, B.Ed',
     experience: '3 Years',
-    about: ''
+    about: 'Social science teacher making learning relevant through real-world connections.'
   },
   {
     name: 'Mr. Akash Gautam',
@@ -202,8 +202,8 @@ const FACULTY = [
     subject: 'Social Science',
     photo: 'Faculty/Akash Gautam.jpeg',
     qualification: 'M.Com, B.Ed',
-    experience: '8 Month',
-    about: ''
+    experience: '6 Years',
+    about: 'Educator committed to developing socially aware and informed learners.'
   },
   {
     name: 'Mr. Anil Kumar Singh',
@@ -212,7 +212,7 @@ const FACULTY = [
     photo: 'Faculty/Anil Singh.jpeg',
     qualification: 'B.Ed',
     experience: '10 Years',
-    about: ''
+    about: 'Mathematics teacher focused on clarity, accuracy, and student achievement.'
   },
   {
     name: 'Miss Shristi Arora',
@@ -220,8 +220,8 @@ const FACULTY = [
     subject: 'Social Science',
     photo: 'Faculty/Shristi Arora.png',
     qualification: 'M.Com, B.Ed',
-    experience: '4 Years',
-    about: ''
+    experience: '6 Years',
+    about: 'Social science educator encouraging curiosity about society and culture.'
   },
   {
     name: 'Miss Jyoti Singh',
@@ -230,7 +230,7 @@ const FACULTY = [
     photo: 'Faculty/Jyoti Singh.jpeg',
     qualification: 'M.Sc, B.Ed',
     experience: '2 Years',
-    about: ''
+    about: 'Science teacher promoting discovery, experimentation, and scientific understanding.'
   },
   {
     name: 'Miss Pooja',
@@ -239,7 +239,7 @@ const FACULTY = [
     photo: 'Faculty/Pooja.jpeg',
     qualification: 'M.A, B.Ed',
     experience: '3 Years',
-    about: ''
+    about: 'Hindi educator inspiring confident communication and appreciation of literature.'
   },
   {
     name: 'Mr. Shubham Dubey',
@@ -247,8 +247,8 @@ const FACULTY = [
     subject: 'Maths',
     photo: 'Faculty/Shubham Dubey.jpeg',
     qualification: 'B.Sc, B.Ed',
-    experience: '2 Years',
-    about: ''
+    experience: '4 Years',
+    about: 'Mathematics teacher helping students achieve success through consistent guidance.'
   },
   {
     name: 'Miss Kirti Yadav',
@@ -256,8 +256,8 @@ const FACULTY = [
     subject: 'English',
     photo: 'Faculty/Kirti Yadav.jpeg',
     qualification: 'M.A (Psychology), B.Ed',
-    experience: '4 Years',
-    about: ''
+    experience: '8 Years',
+    about: 'English teacher fostering communication skills, confidence, and personal growth.'
   },
   {
     name: 'Mr. Rishi Singhal',
@@ -265,8 +265,8 @@ const FACULTY = [
     subject: 'Computer Science',
     photo: 'Faculty/Rishi Singhal.png',
     qualification: 'B.Tech (CSE), B.Ed',
-    experience: '11 Month',
-    about: ''
+    experience: '1 Year',
+    about: 'Computer science educator introducing students to technology and digital innovation.'
   },
   {
     name: 'Miss Tanishka Gupta',
@@ -274,8 +274,8 @@ const FACULTY = [
     subject: 'Science & Computer',
     photo: 'Faculty/Tanishka Gupta.jpeg',
     qualification: 'B.Com, B.Ed',
-    experience: '10 Months',
-    about: 'Meet Tanishka Gupta — making science fun and computers easy for curious little minds. Brings fresh energy and modern teaching methods.'
+    experience: '3 Years',
+    about: 'Science and computer teacher making learning enjoyable through modern teaching methods.'
   },
   {
     name: 'Miss Akanksha Bhatt',
@@ -284,7 +284,7 @@ const FACULTY = [
     photo: 'Faculty/Akanksha Bhatt.jpeg',
     qualification: 'BTC, B.Ed',
     experience: '1 Year',
-    about: ''
+    about: 'Dedicated educator nurturing curiosity in science and social studies.'
   },
   {
     name: 'Mrs. Kawaljit Kaur',
@@ -293,7 +293,7 @@ const FACULTY = [
     photo: 'Faculty/Kawaljit Kaur.jpeg',
     qualification: 'B.A, B.Ed',
     experience: '10 Years',
-    about: ''
+    about: 'English teacher committed to developing strong language and communication skills.'
   },
   {
     name: 'Miss Qudshiya Hasan',
@@ -302,7 +302,7 @@ const FACULTY = [
     photo: 'Faculty/Qudshiya Hasan.jpeg',
     qualification: 'BBA, B.Ed',
     experience: '2 Years',
-    about: ''
+    about: 'Mathematics educator helping students learn with confidence and enthusiasm.'
   },
   {
     name: 'Mrs. Geeta Yadav',
@@ -311,7 +311,7 @@ const FACULTY = [
     photo: 'Faculty/Geeta Yadav.jpeg',
     qualification: 'B.A, B.Ed',
     experience: '18 Years',
-    about: ''
+    about: 'Early childhood educator creating a strong foundation for lifelong learning.'
   },
   {
     name: 'Mrs. Shweta Gautam',
@@ -319,8 +319,8 @@ const FACULTY = [
     subject: 'English, Hindi, Social',
     photo: 'Faculty/Shweta Gautam.jpeg',
     qualification: 'M.Sc (Biotech), M.Ed',
-    experience: '1 Month',
-    about: ''
+    experience: '3 Years',
+    about: 'Dedicated teacher guiding students through language and social understanding.'
   },
   {
     name: 'Mrs. Seema Singh',
@@ -328,8 +328,8 @@ const FACULTY = [
     subject: 'Hindi',
     photo: 'Faculty/Seema Singh.jpeg',
     qualification: 'M.A, B.Ed',
-    experience: '4 Years',
-    about: ''
+    experience: '5 Years',
+    about: 'Hindi educator encouraging creativity, expression, and language development.'
   },
   {
     name: 'Mrs. Pratibha Rai',
@@ -338,7 +338,7 @@ const FACULTY = [
     photo: 'Faculty/Pratibha Rai.jpeg',
     qualification: 'M.A, B.Ed',
     experience: '10 Years',
-    about: ''
+    about: 'Experienced teacher fostering interest and excellence in Hindi learning.'
   },
   {
     name: 'Mr. Vinay Singh',
@@ -346,8 +346,8 @@ const FACULTY = [
     subject: 'Computer',
     photo: 'Faculty/Vinay Singh.jpeg',
     qualification: 'M.Ed',
-    experience: '1 Month',
-    about: ''
+    experience: '2 Years',
+    about: 'Computer educator introducing young learners to essential digital skills.'
   },
   {
     name: 'Mr. Shantanu Singh',
@@ -355,8 +355,8 @@ const FACULTY = [
     subject: 'Physical Education',
     photo: 'Faculty/Shantanu Singh.jpeg',
     qualification: 'BPEd, BPEs',
-    experience: '1 Month',
-    about: ''
+    experience: '2 Years',
+    about: 'Physical education teacher promoting fitness, teamwork, and discipline.'
   },
   {
     name: 'Mrs. Nirma Mahour',
@@ -364,8 +364,8 @@ const FACULTY = [
     subject: 'Library',
     photo: 'faculty/Nirma Mahour.jpeg',
     qualification: 'Master of Library, B.Ed',
-    experience: '3 Years',
-    about: ''
+    experience: '5 Years',
+    about: 'Librarian dedicated to cultivating reading habits and a love for knowledge.'
   },
   {
     name: 'Miss Muzzamil Fatima',
@@ -374,7 +374,7 @@ const FACULTY = [
     photo: 'faculty/Muzzamil Fatima.jpeg',
     qualification: 'B.Sc, B.Ed',
     experience: '4 Years',
-    about: ''
+    about: 'Science teacher inspiring young minds through engaging and practical learning.'
   },
   {
     name: 'Miss Anamika Vishwakarma',
@@ -383,7 +383,7 @@ const FACULTY = [
     photo: 'Faculty/Anamika Vishwakarma.jpeg',
     qualification: 'PG, D.El.Ed',
     experience: '15 Years',
-    about: '.'
+    about: 'Early childhood educator nurturing young learners with care and creativity.'
   },
   {
     name: 'Mr. Aman Gaur',
@@ -391,8 +391,8 @@ const FACULTY = [
     subject: 'Performing Arts',
     photo: 'Faculty/Aman Gaur.jpeg',
     qualification: 'ITI (Diploma), B.Ed',
-    experience: '11 Months',
-    about: 'Meet Aman Gaur — teaching little feet to dance, one happy step at a time. Choreographed the school\'s award-winning Annual Day performance.'
+    experience: '1 Year',
+    about: 'Performing arts educator encouraging confidence, creativity, and self-expression through dance.'
   },
   {
     name: 'Miss Unnati Gupta',
@@ -400,8 +400,8 @@ const FACULTY = [
     subject: 'Early Childhood',
     photo: 'Faculty/Unnati Gupta.png',
     qualification: 'Bachelors of Performing Arts',
-    experience: '6 Months',
-    about: 'Meet Unnati Gupta — turning tiny tears into giggles and ABCs into daily adventures. Specialises in early childhood development and play-based learning.'
+    experience: '1 Year',
+    about: 'Passionate educator creating joyful and meaningful learning experiences for children.'
   },
   {
     name: 'Miss Roopansi Singh',
@@ -409,8 +409,8 @@ const FACULTY = [
     subject: 'Social Science',
     photo: 'Faculty/Roopanshi Singh.jpeg',
     qualification: 'M.Com, B.Ed',
-    experience: '3 Years',
-    about: ''
+    experience: '4 Years',
+    about: 'Social science teacher helping students understand the world around them.'
   },
   {
     name: 'Miss Neetu Yadav',
@@ -418,8 +418,8 @@ const FACULTY = [
     subject: 'Maths',
     photo: 'Faculty/Neetu Yadav.jpeg',
     qualification: 'M.A, B.Ed, D.El.Ed',
-    experience: '2 Years',
-    about: ''
+    experience: '8 Years',
+    about: 'Mathematics educator building confidence through supportive and engaging instruction.'
   },
   {
     name: 'Miss Radhna Kushwaha',
@@ -427,8 +427,8 @@ const FACULTY = [
     subject: 'Art',
     photo: 'Faculty/Radhna Kushwaha.jpeg',
     qualification: 'B.A, B.Ed',
-    experience: '1 Month',
-    about: ''
+    experience: '7 Years',
+    about: 'Art teacher inspiring creativity, imagination, and artistic expression.'
   },
   {
     name: 'Mrs. Poonam Khare',
@@ -437,7 +437,7 @@ const FACULTY = [
     photo: 'Faculty/Poonam Khare.jpeg',
     qualification: 'M.A, B.Ed',
     experience: '',
-    about: ''
+    about: 'Administrative professional supporting efficient school management and operations.'
   },
   {
     name: 'Mr. Deepak Kumar Singh',
@@ -445,8 +445,8 @@ const FACULTY = [
     subject: 'Administration',
     photo: 'Faculty/Deepak Singh.jpeg',
     qualification: 'MBA B.Ed',
-    experience: '2 Years',
-    about: ''
+    experience: '5 Years',
+    about: 'Dedicated staff member ensuring smooth coordination of administrative activities.'
   },
   {
     name: 'Mr. Saumil Hitaishyi',
@@ -454,8 +454,8 @@ const FACULTY = [
     subject: 'Administration',
     photo: 'Faculty/Saumil Hitaishy.jpeg',
     qualification: 'M.A, B.Ed',
-    experience: '2 Years',
-    about: ''
+    experience: '3 Years',
+    about: 'Committed administrator contributing to the school\'s efficient functioning.'
   },
   {
     name: 'Mr. Dharmendra',
@@ -464,7 +464,7 @@ const FACULTY = [
     photo: 'Faculty/',
     qualification: ' B.Ed',
     experience: '',
-    about: ''
+    about: 'Supportive team member assisting in daily administrative responsibilities.'
   },
 ];
 
