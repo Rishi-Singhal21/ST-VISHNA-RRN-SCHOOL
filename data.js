@@ -156,7 +156,7 @@ const FACULTY = [
     designation: 'TGT',
     subject: 'Science',
     photo: 'Faculty/Himanshu Shukla.jpeg',
-    qualification: ' B.Ed',
+    qualification: 'M.Sc, B.Ed',
     experience: '4 Years',
     about: 'Science educator inspiring curiosity, exploration, and critical thinking.'
   },
@@ -164,13 +164,13 @@ const FACULTY = [
     name: 'Mrs. Ankur Singh',
     designation: 'TGT',
     subject: 'Hindi',
-    photo: 'faculty/Ankur Singh.jpeg',
+    photo: 'Faculty/Ankur Singh.jpeg',
     qualification: 'M.A, B.Ed',
     experience: '13 Years',
     about: 'Passionate Hindi teacher nurturing language skills and cultural appreciation.'
   },
   {
-    name: 'Mr. Ramakant Tiwawi',
+    name: 'Mr. Ramakant Tiwari',
     designation: 'TGT',
     subject: 'English',
     photo: 'Faculty/Ramakant Tiwari.jpeg',
