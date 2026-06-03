@@ -362,7 +362,7 @@ const FACULTY = [
     name: 'Mrs. Nirma Mahour',
     designation: 'Librarian',
     subject: 'Library',
-    photo: 'faculty/Nirma Mahour.jpeg',
+    photo: 'Faculty/Nirma Mahour.jpeg',
     qualification: 'Master of Library, B.Ed',
     experience: '5 Years',
     about: 'Librarian dedicated to cultivating reading habits and a love for knowledge.'
