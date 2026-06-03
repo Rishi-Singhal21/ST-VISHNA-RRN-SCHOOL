@@ -154,7 +154,7 @@ const FACULTY = [
   {
     name: 'Mr. Himanshu Shukla',
     designation: 'TGT',
-    subject: 'Science',
+    subject: 'Chemistry',
     photo: 'Faculty/Himanshu Shukla.jpeg',
     qualification: 'M.Sc, B.Ed',
     experience: '4 Years',
@@ -263,7 +263,7 @@ const FACULTY = [
     name: 'Mr. Rishi Singhal',
     designation: 'TGT',
     subject: 'Computer Science',
-    photo: 'Faculty/Rishi Singhal.png',
+    photo: 'Faculty/Rishi SInghal.png',
     qualification: 'B.Tech (CSE), B.Ed',
     experience: '1 Year',
     about: 'Computer science educator introducing students to technology and digital innovation.'
