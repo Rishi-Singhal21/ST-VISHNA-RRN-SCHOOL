@@ -363,7 +363,7 @@ const FACULTY = [
     designation: 'Librarian',
     subject: 'Library',
     photo: 'Faculty/Nirma Mahour.jpeg',
-    qualification: 'Master of Library, B.Ed',
+    qualification: 'M.Lib, B.Ed',
     experience: '5 Years',
     about: 'Librarian dedicated to cultivating reading habits and a love for knowledge.'
   },
@@ -371,7 +371,7 @@ const FACULTY = [
     name: 'Miss Muzzamil Fatima',
     designation: 'PRT',
     subject: 'Science',
-    photo: 'faculty/Muzzamil Fatima.jpeg',
+    photo: 'Faculty/Muzzamil Fatima.jpeg',
     qualification: 'B.Sc, B.Ed',
     experience: '4 Years',
     about: 'Science teacher inspiring young minds through engaging and practical learning.'
@@ -436,7 +436,7 @@ const FACULTY = [
     subject: 'Administration',
     photo: 'Faculty/Poonam Khare.jpeg',
     qualification: 'M.A, B.Ed',
-    experience: '',
+    experience: '31 Years',
     about: 'Administrative professional supporting efficient school management and operations.'
   },
   {
